@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>🍃 Naruto Shop — كنز الشي-نوبي</title>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Tajawal:wght@300;400;700;900&display=swap" rel="stylesheet"/>
+    <title>🍃 Naruto Shop — كنز الشينوبي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700;800&family=Tajawal:wght@300;400;700;900&display=swap" rel="stylesheet"/>
     <style>
-        /* ============================================================
-           ROOT – LIGHT THEME + NARUTO VIBES
-           ============================================================ */
         * {
             margin: 0;
             padding: 0;
@@ -16,19 +13,20 @@
         }
 
         :root {
-            --bg: #f5ede3;
-            --surface: #ffffff;
-            --card: #ffffff;
-            --border: rgba(200, 160, 120, 0.25);
-            --accent: #e67e22;
-            --accent2: #d35400;
+            --bg: #0f0c08;
+            --surface: rgba(255, 245, 235, 0.06);
+            --card: rgba(30, 20, 15, 0.85);
+            --border: rgba(200, 160, 120, 0.15);
+            --accent: #f39c12;
+            --accent2: #e67e22;
             --accent3: #e74c3c;
             --gold: #f1c40f;
-            --text: #2c3e50;
-            --muted: #7f8c8d;
-            --green: #27ae60;
-            --shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            --text: #f5e6d3;
+            --muted: #b8a9a0;
+            --green: #2ecc71;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
             --radius: 16px;
+            --glow: rgba(243, 156, 18, 0.15);
         }
 
         html {
@@ -41,185 +39,135 @@
             color: var(--text);
             min-height: 100vh;
             overflow-x: hidden;
-            /* ===== خلفية ناروتوية ===== */
-            background-image: 
-                /* شوريكنز متطايرة */
-                url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 5 L45 30 L70 35 L45 40 L40 65 L35 40 L10 35 L35 30 Z' fill='rgba(230,126,34,0.04)' stroke='rgba(230,126,34,0.08)' stroke-width='1'/%3E%3C/svg%3E"),
-                /* أوراق الشجر المتساقطة */
-                url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 10 C70 30 90 40 90 60 C90 80 70 90 60 110 C50 90 30 80 30 60 C30 40 50 30 60 10Z' fill='rgba(39,174,96,0.04)'/%3E%3C/svg%3E"),
-                /* رمز ناروتو */
-                url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='100' cy='100' r='80' fill='none' stroke='rgba(230,126,34,0.03)' stroke-width='2'/%3E%3Cpath d='M100 20 L120 80 L180 80 L130 120 L150 180 L100 140 L50 180 L70 120 L20 80 L80 80 Z' fill='rgba(230,126,34,0.02)' stroke='rgba(230,126,34,0.04)' stroke-width='1'/%3E%3C/svg%3E"),
-                /* تأثيرات الناروتو - خلفيات متدرجة */
-                radial-gradient(circle at 10% 20%, rgba(230, 126, 34, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 90% 80%, rgba(211, 84, 0, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(39, 174, 96, 0.02) 0%, transparent 70%);
-            background-size: 80px 80px, 120px 120px, 200px 200px, 100% 100%, 100% 100%, 100% 100%;
+            background-image:
+                url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 5 L70 30 L95 35 L75 55 L80 85 L60 70 L40 85 L45 55 L25 35 L50 30 Z' fill='rgba(243,156,18,0.04)'/%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='90' cy='90' r='70' fill='none' stroke='rgba(243,156,18,0.03)' stroke-width='2'/%3E%3Cpath d='M90 20 L110 80 L170 80 L125 120 L145 175 L90 135 L35 175 L55 120 L10 80 L70 80 Z' fill='rgba(243,156,18,0.02)'/%3E%3C/svg%3E"),
+                radial-gradient(ellipse at 20% 30%, rgba(243,156,18,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 70%, rgba(231,76,60,0.05) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 50%, rgba(46,204,113,0.03) 0%, transparent 70%);
+            background-size: 120px 120px, 180px 180px, 100% 100%, 100% 100%, 100% 100%;
             background-attachment: fixed;
-            background-blend-mode: overlay, overlay, overlay, normal, normal, normal;
+            background-blend-mode: overlay, overlay, normal, normal, normal;
         }
 
-        /* ===== تأثير أوراق متساقطة متحركة ===== */
+        /* ===== خلفية متحركة بها أوراق ===== */
         .leaf {
             position: fixed;
-            font-size: 2rem;
-            opacity: 0.08;
+            font-size: 2.4rem;
+            opacity: 0.07;
             pointer-events: none;
             z-index: 0;
-            animation: leafFloat 20s linear infinite;
+            animation: leafFall 22s linear infinite;
+            filter: drop-shadow(0 0 8px rgba(243,156,18,0.1));
+        }
+        @keyframes leafFall {
+            0% { transform: translateY(-10vh) rotate(0deg) scale(1); opacity: 0.08; }
+            50% { opacity: 0.15; }
+            100% { transform: translateY(110vh) rotate(720deg) scale(0.4); opacity: 0.02; }
         }
 
-        @keyframes leafFloat {
-            0% {
-                transform: translateY(-10vh) rotate(0deg) scale(1);
-                opacity: 0.08;
-            }
-            50% {
-                opacity: 0.15;
-            }
-            100% {
-                transform: translateY(110vh) rotate(720deg) scale(0.5);
-                opacity: 0.02;
-            }
-        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #1a1410; }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
 
-        /* ============================================================
-           SCROLLBAR
-           ============================================================ */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent);
-            border-radius: 10px;
-        }
-
-        /* ============================================================
-           NAVBAR
-           ============================================================ */
+        /* ===== NAVBAR ===== */
         nav {
             position: sticky;
             top: 0;
             z-index: 200;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(20px);
+            background: rgba(15, 12, 8, 0.92);
+            backdrop-filter: blur(24px);
             border-bottom: 1px solid var(--border);
-            padding: 0 2rem;
+            padding: 0 1.8rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
             height: 68px;
-            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.6);
         }
 
         .logo {
             font-family: 'Rajdhani', sans-serif;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 800;
-            letter-spacing: 1px;
             display: flex;
             align-items: center;
-            gap: 0.6rem;
-            cursor: pointer;
+            gap: 0.5rem;
             color: var(--text);
+            cursor: pointer;
+            letter-spacing: 1px;
         }
-
         .logo .logo-icon {
-            width: 38px;
-            height: 38px;
+            width: 38px; height: 38px;
             background: linear-gradient(135deg, var(--accent), var(--accent2));
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
-            color: #fff;
-            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.25);
+            box-shadow: 0 0 20px rgba(243,156,18,0.2);
         }
+        .logo span { background: linear-gradient(135deg, var(--accent), var(--gold)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 
-        .logo span {
-            background: linear-gradient(135deg, var(--accent), var(--accent2));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
         }
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: 0.3s;
+            cursor: pointer;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
         .nav-right {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
-
-        .nav-links {
-            display: flex;
-            gap: 1.75rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: color 0.2s;
-            cursor: pointer;
-            padding: 4px 0;
-            border-bottom: 2px solid transparent;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-            border-bottom-color: var(--accent);
-        }
-
         .btn-back {
             display: none;
             align-items: center;
             gap: 0.4rem;
-            background: rgba(0, 0, 0, 0.04);
+            background: rgba(255,255,255,0.06);
             border: 1px solid var(--border);
             color: var(--muted);
-            padding: 0.4rem 0.9rem;
+            padding: 0.3rem 0.9rem;
             border-radius: 8px;
             cursor: pointer;
             font-family: 'Tajawal', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             transition: all 0.2s;
         }
-
-        .btn-back:hover {
-            color: var(--text);
-            border-color: rgba(0, 0, 0, 0.15);
-        }
+        .btn-back:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
 
         .btn-cart {
-            background: rgba(230, 126, 34, 0.08);
-            border: 1px solid rgba(230, 126, 34, 0.2);
+            background: rgba(243,156,18,0.12);
+            border: 1px solid rgba(243,156,18,0.2);
             color: var(--accent);
-            padding: 0.4rem 1rem;
+            padding: 0.35rem 1rem;
             border-radius: 8px;
             cursor: pointer;
             font-family: 'Tajawal', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            transition: all 0.2s;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            transition: 0.3s;
         }
-
-        .btn-cart:hover {
-            background: rgba(230, 126, 34, 0.15);
-        }
-
+        .btn-cart:hover { background: rgba(243,156,18,0.2); }
         .cart-count {
             background: var(--accent3);
             color: #fff;
             border-radius: 50%;
-            width: 20px;
-            height: 20px;
+            width: 20px; height: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -227,164 +175,98 @@
             font-weight: 700;
         }
 
-        /* ============================================================
-           PAGE
-           ============================================================ */
-        .page {
-            position: relative;
-            z-index: 1;
-        }
-
-        .page-enter {
-            animation: pageIn 0.35s ease both;
-        }
-
-        @keyframes pageIn {
-            from {
-                opacity: 0;
-                transform: translateX(36px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* ============================================================
-           HERO – NARUTO STYLE
-           ============================================================ */
+        /* ===== HERO ===== */
         .hero {
             text-align: center;
-            padding: 4rem 2rem 3rem;
+            padding: 4rem 1.5rem 2.5rem;
             max-width: 900px;
             margin: 0 auto;
             position: relative;
         }
-
         .hero::before {
-            content: '🍃';
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 4rem;
-            opacity: 0.1;
-            animation: floatIcon 6s ease-in-out infinite;
+            content: '🌀'; position: absolute; top: 10px; right: 20px;
+            font-size: 5rem; opacity: 0.06; animation: spinFloat 12s linear infinite;
         }
-
         .hero::after {
-            content: '🌀';
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            font-size: 4rem;
-            opacity: 0.1;
-            animation: floatIcon 6s ease-in-out infinite reverse;
+            content: '🍥'; position: absolute; bottom: 10px; left: 20px;
+            font-size: 5rem; opacity: 0.06; animation: spinFloat 12s linear infinite reverse;
         }
-
-        @keyframes floatIcon {
-            0%,
-            100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-10px) rotate(10deg);
-            }
+        @keyframes spinFloat {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background: rgba(230, 126, 34, 0.08);
-            border: 1px solid rgba(230, 126, 34, 0.2);
+            gap: 0.6rem;
+            background: rgba(243,156,18,0.1);
+            border: 1px solid rgba(243,156,18,0.2);
             border-radius: 100px;
-            padding: 0.35rem 1.2rem;
+            padding: 0.3rem 1.4rem;
             font-size: 0.8rem;
             font-weight: 600;
-            color: var(--accent);
+            color: var(--gold);
             margin-bottom: 1.5rem;
         }
-
-        .hero-badge .pulse-dot {
-            width: 8px;
-            height: 8px;
+        .pulse-dot {
+            width: 8px; height: 8px;
             background: var(--green);
             border-radius: 50%;
-            animation: pulse 1.5s infinite;
+            animation: pulse 1.8s infinite;
         }
-
         @keyframes pulse {
-            0%,
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.5;
-                transform: scale(1.4);
-            }
+            0%,100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.6); }
         }
 
         .hero h1 {
-            font-size: clamp(2rem, 5.5vw, 4.2rem);
+            font-size: clamp(2.2rem, 5.5vw, 4.2rem);
             font-weight: 900;
             line-height: 1.1;
-            margin-bottom: 1rem;
-            color: var(--text);
-            text-shadow: 0 2px 20px rgba(230, 126, 34, 0.05);
+            margin-bottom: 0.8rem;
+            text-shadow: 0 0 40px rgba(243,156,18,0.08);
         }
-
         .hero h1 span {
-            background: linear-gradient(135deg, var(--accent), var(--accent2));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background: linear-gradient(135deg, var(--accent), var(--gold));
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
         }
-
         .hero p {
             color: var(--muted);
             font-size: 1rem;
             max-width: 480px;
             margin: 0 auto 2rem;
-            line-height: 1.8;
+            line-height: 1.9;
         }
-
         .hero-stats {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 2.5rem;
             flex-wrap: wrap;
         }
-
         .stat-num {
             font-family: 'Rajdhani', sans-serif;
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
             color: var(--accent);
         }
+        .stat-label { font-size: 0.75rem; color: var(--muted); }
 
-        .stat-label {
-            font-size: 0.75rem;
-            color: var(--muted);
-        }
-
-        /* ============================================================
-           FEATURES BAR
-           ============================================================ */
+        /* ===== FEATURES ===== */
         .features-bar {
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
-            background: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(10px);
-            padding: 1rem 1.5rem;
+            background: rgba(15,12,8,0.6);
+            backdrop-filter: blur(12px);
+            padding: 0.9rem 1.5rem;
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 2.5rem;
             flex-wrap: wrap;
             position: relative;
             z-index: 1;
         }
-
         .feature-item {
             display: flex;
             align-items: center;
@@ -392,16 +274,13 @@
             font-size: 0.8rem;
             color: var(--muted);
         }
-
         .feature-item strong {
             display: block;
             color: var(--text);
             font-size: 0.8rem;
         }
 
-        /* ============================================================
-           SECTION
-           ============================================================ */
+        /* ===== SECTION ===== */
         .section {
             max-width: 1200px;
             margin: 0 auto;
@@ -409,19 +288,17 @@
             position: relative;
             z-index: 1;
         }
-
         .section-title {
             display: flex;
             align-items: center;
             gap: 1rem;
             margin-bottom: 1.5rem;
         }
-
         .section-title h2 {
             font-size: 1.2rem;
             font-weight: 800;
+            color: var(--text);
         }
-
         .section-title::after {
             content: '';
             flex: 1;
@@ -429,16 +306,13 @@
             background: var(--border);
         }
 
-        /* ============================================================
-           CATEGORIES
-           ============================================================ */
+        /* ===== CATEGORIES ===== */
         .categories {
             display: flex;
             gap: 0.5rem;
             flex-wrap: wrap;
             margin-bottom: 1.5rem;
         }
-
         .cat-btn {
             padding: 0.4rem 1rem;
             border-radius: 100px;
@@ -449,28 +323,20 @@
             font-family: 'Tajawal', sans-serif;
             font-size: 0.8rem;
             font-weight: 600;
-            transition: all 0.2s;
+            transition: all 0.3s;
             white-space: nowrap;
         }
-
-        .cat-btn:hover,
-        .cat-btn.active {
+        .cat-btn:hover, .cat-btn.active {
             border-color: var(--accent);
-            color: var(--accent);
-            background: rgba(230, 126, 34, 0.06);
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.05);
+            color: var(--gold);
+            background: rgba(243,156,18,0.08);
+            box-shadow: 0 0 20px rgba(243,156,18,0.05);
         }
 
-        /* ============================================================
-           SEARCH
-           ============================================================ */
-        .search-wrap {
-            max-width: 420px;
-            margin-bottom: 1.5rem;
-        }
-
+        /* ===== SEARCH ===== */
         .search-input {
             width: 100%;
+            max-width: 420px;
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 10px;
@@ -479,204 +345,92 @@
             font-family: 'Tajawal', sans-serif;
             font-size: 0.85rem;
             outline: none;
-            transition: border-color 0.2s;
-            box-shadow: var(--shadow);
+            transition: 0.3s;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(4px);
         }
-
         .search-input:focus {
             border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.08);
+            box-shadow: 0 0 0 3px rgba(243,156,18,0.08);
         }
+        .search-input::placeholder { color: var(--muted); }
 
-        .search-input::placeholder {
-            color: var(--muted);
-        }
-
-        /* ============================================================
-           PRODUCTS GRID
-           ============================================================ */
+        /* ===== PRODUCTS GRID ===== */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 1rem;
+            gap: 1.2rem;
         }
-
         .product-card {
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: var(--radius);
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.35s cubic-bezier(0.15, 0.85, 0.35, 1);
             cursor: pointer;
             position: relative;
-            animation: fadeUp 0.45s ease both;
+            animation: fadeUp 0.5s ease both;
             box-shadow: var(--shadow);
+            backdrop-filter: blur(4px);
         }
-
         .product-card:hover {
             border-color: var(--accent);
-            transform: translateY(-6px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(230, 126, 34, 0.1);
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 0 1px rgba(243,156,18,0.15);
         }
-
-        .product-card.hidden {
-            display: none;
-        }
-
+        .product-card.hidden { display: none; }
         @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ============================================================
-           CARD BANNER – NARUTO THEMED
-           ============================================================ */
+        /* ===== CARD BANNER ===== */
         .card-banner {
             height: 120px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 3.2rem;
             position: relative;
             overflow: hidden;
         }
-
         .card-banner::before {
             content: '';
             position: absolute;
             inset: 0;
             opacity: 0.15;
+            background: radial-gradient(circle at 50% 50%, rgba(243,156,18,0.2), transparent);
         }
 
-        /* ---- Naruto-themed banners ---- */
-        .banner-akatsuki {
-            background: linear-gradient(135deg, #1a0000, #3d0a0a);
-        }
-        .banner-akatsuki::before {
-            background: radial-gradient(circle at 50% 50%, #c0392b, transparent);
-        }
+        /* Naruto Themed Banners */
+        .banner-akatsuki { background: linear-gradient(135deg, #1a0000, #3d0a0a); }
+        .banner-konoha { background: linear-gradient(135deg, #0a2a0a, #1a4a1a); }
+        .banner-sand { background: linear-gradient(135deg, #2a1a0a, #4a2a0a); }
+        .banner-mist { background: linear-gradient(135deg, #0a1a2a, #0a2a4a); }
+        .banner-cloud { background: linear-gradient(135deg, #1a1a2a, #2a2a4a); }
+        .banner-stone { background: linear-gradient(135deg, #1a1a0a, #3a2a0a); }
+        .banner-uzumaki { background: linear-gradient(135deg, #2a0a0a, #4a1a0a); }
+        .banner-uchiha { background: linear-gradient(135deg, #0a0a2a, #1a0a4a); }
+        .banner-senju { background: linear-gradient(135deg, #0a2a1a, #0a4a2a); }
+        .banner-hokage { background: linear-gradient(135deg, #1a0a00, #3a1a00); }
+        .banner-rasengan { background: linear-gradient(135deg, #0a1a2a, #1a3a5a); }
+        .banner-chidori { background: linear-gradient(135deg, #1a0a2a, #3a0a5a); }
+        .banner-susanoo { background: linear-gradient(135deg, #0a0a1a, #1a0a3a); }
+        .banner-nine-tails { background: linear-gradient(135deg, #1a0000, #4a0a0a); }
+        .banner-sage { background: linear-gradient(135deg, #0a1a0a, #1a3a1a); }
 
-        .banner-konoha {
-            background: linear-gradient(135deg, #0a2a0a, #1a4a1a);
-        }
-        .banner-konoha::before {
-            background: radial-gradient(circle at 50% 50%, #27ae60, transparent);
-        }
-
-        .banner-sand {
-            background: linear-gradient(135deg, #2a1a0a, #4a2a0a);
-        }
-        .banner-sand::before {
-            background: radial-gradient(circle at 50% 50%, #f39c12, transparent);
-        }
-
-        .banner-mist {
-            background: linear-gradient(135deg, #0a1a2a, #0a2a4a);
-        }
-        .banner-mist::before {
-            background: radial-gradient(circle at 50% 50%, #3498db, transparent);
-        }
-
-        .banner-cloud {
-            background: linear-gradient(135deg, #1a1a2a, #2a2a4a);
-        }
-        .banner-cloud::before {
-            background: radial-gradient(circle at 50% 50%, #8e44ad, transparent);
-        }
-
-        .banner-stone {
-            background: linear-gradient(135deg, #1a1a0a, #3a2a0a);
-        }
-        .banner-stone::before {
-            background: radial-gradient(circle at 50% 50%, #d4a373, transparent);
-        }
-
-        .banner-uzumaki {
-            background: linear-gradient(135deg, #2a0a0a, #4a1a0a);
-        }
-        .banner-uzumaki::before {
-            background: radial-gradient(circle at 50% 50%, #e67e22, transparent);
-        }
-
-        .banner-uchiha {
-            background: linear-gradient(135deg, #0a0a2a, #1a0a4a);
-        }
-        .banner-uchiha::before {
-            background: radial-gradient(circle at 50% 50%, #8e44ad, transparent);
-        }
-
-        .banner-senju {
-            background: linear-gradient(135deg, #0a2a1a, #0a4a2a);
-        }
-        .banner-senju::before {
-            background: radial-gradient(circle at 50% 50%, #2ecc71, transparent);
-        }
-
-        .banner-hokage {
-            background: linear-gradient(135deg, #1a0a00, #3a1a00);
-        }
-        .banner-hokage::before {
-            background: radial-gradient(circle at 50% 50%, #f1c40f, transparent);
-        }
-
-        .banner-rasengan {
-            background: linear-gradient(135deg, #0a1a2a, #1a3a5a);
-        }
-        .banner-rasengan::before {
-            background: radial-gradient(circle at 50% 50%, #3498db, transparent);
-        }
-
-        .banner-chidori {
-            background: linear-gradient(135deg, #1a0a2a, #3a0a5a);
-        }
-        .banner-chidori::before {
-            background: radial-gradient(circle at 50% 50%, #8e44ad, transparent);
-        }
-
-        .banner-susanoo {
-            background: linear-gradient(135deg, #0a0a1a, #1a0a3a);
-        }
-        .banner-susanoo::before {
-            background: radial-gradient(circle at 50% 50%, #6c3483, transparent);
-        }
-
-        .banner-nine-tails {
-            background: linear-gradient(135deg, #1a0000, #4a0a0a);
-        }
-        .banner-nine-tails::before {
-            background: radial-gradient(circle at 50% 50%, #e74c3c, transparent);
-        }
-
-        .banner-sage {
-            background: linear-gradient(135deg, #0a1a0a, #1a3a1a);
-        }
-        .banner-sage::before {
-            background: radial-gradient(circle at 50% 50%, #2ecc71, transparent);
-        }
-
-        /* ---- Character emoji overlay ---- */
         .character-emoji {
             position: absolute;
-            bottom: 5px;
-            right: 5px;
-            font-size: 2.2rem;
+            bottom: 4px; right: 6px;
+            font-size: 2.4rem;
             opacity: 0.2;
             z-index: 1;
-            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.1));
-            line-height: 1;
+            filter: drop-shadow(0 0 12px rgba(0,0,0,0.3));
         }
-
         .card-badge {
             position: absolute;
-            top: 8px;
-            left: 8px;
-            padding: 0.15rem 0.6rem;
+            top: 8px; left: 8px;
+            padding: 0.1rem 0.6rem;
             border-radius: 100px;
             font-size: 0.6rem;
             font-weight: 700;
@@ -684,80 +438,44 @@
             letter-spacing: 0.5px;
             z-index: 2;
         }
-
-        .badge-hot {
-            background: var(--accent3);
-            color: #fff;
-        }
-        .badge-new {
-            background: var(--accent);
-            color: #fff;
-        }
-        .badge-sale {
-            background: var(--gold);
-            color: var(--text);
-        }
-        .badge-stock {
-            background: var(--green);
-            color: #fff;
-        }
-        .badge-limited {
-            background: #8e44ad;
-            color: #fff;
-        }
+        .badge-hot { background: var(--accent3); color: #fff; }
+        .badge-new { background: var(--accent); color: #fff; }
+        .badge-sale { background: var(--gold); color: #1a1410; }
+        .badge-stock { background: var(--green); color: #1a1410; }
+        .badge-limited { background: #8e44ad; color: #fff; }
 
         .card-body {
-            padding: 0.8rem 1rem 1rem;
+            padding: 0.7rem 1rem 1rem;
         }
-
-        .card-title {
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-bottom: 0.2rem;
-        }
-
-        .card-type {
-            font-size: 0.7rem;
-            color: var(--muted);
-            margin-bottom: 0.5rem;
-        }
-
+        .card-title { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.1rem; }
+        .card-type { font-size: 0.7rem; color: var(--muted); margin-bottom: 0.4rem; }
         .card-prices {
             display: flex;
             align-items: baseline;
             gap: 0.4rem;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.5rem;
             flex-wrap: wrap;
         }
-
         .price-usd {
             font-family: 'Rajdhani', sans-serif;
             font-size: 1.1rem;
             font-weight: 700;
             color: var(--accent);
         }
-
-        .price-sep {
-            color: var(--border);
-        }
-
         .price-dt {
             font-family: 'Rajdhani', sans-serif;
             font-size: 1rem;
             font-weight: 700;
             color: var(--gold);
         }
-
         .price-orig {
             font-size: 0.7rem;
             color: var(--muted);
             text-decoration: line-through;
         }
+        .price-sep { color: var(--border); }
 
-        .stock-bar {
-            margin-bottom: 0.6rem;
-        }
-
+        .stock-bar { margin-bottom: 0.5rem; }
         .stock-label {
             display: flex;
             justify-content: space-between;
@@ -765,20 +483,17 @@
             color: var(--muted);
             margin-bottom: 2px;
         }
-
         .stock-track {
             height: 4px;
-            background: rgba(0, 0, 0, 0.06);
+            background: rgba(255,255,255,0.06);
             border-radius: 100px;
             overflow: hidden;
         }
-
         .stock-fill {
             height: 100%;
             border-radius: 100px;
             background: linear-gradient(90deg, var(--green), #82e0aa);
         }
-
         .stock-low .stock-fill {
             background: linear-gradient(90deg, var(--accent3), #f1948a);
         }
@@ -789,36 +504,29 @@
             border-radius: 8px;
             background: linear-gradient(135deg, var(--accent), var(--accent2));
             border: none;
-            color: #fff;
+            color: #1a1410;
             font-family: 'Tajawal', sans-serif;
             font-size: 0.85rem;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.3s;
         }
-
         .btn-detail:hover {
-            box-shadow: 0 4px 16px rgba(230, 126, 34, 0.35);
-            transform: scale(1.02);
+            box-shadow: 0 4px 24px rgba(243,156,18,0.4);
+            transform: scale(1.03);
         }
 
-        /* ============================================================
-           DETAIL PAGE
-           ============================================================ */
-        #pageDetail {
-            display: none;
-        }
-
+        /* ===== DETAIL PAGE ===== */
+        #pageDetail { display: none; }
         .detail-wrap {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 1.5rem 1rem;
             display: grid;
             grid-template-columns: 1fr 1.15fr;
             gap: 2rem;
             align-items: start;
         }
-
         .detail-visual {
             border-radius: 20px;
             overflow: hidden;
@@ -830,24 +538,19 @@
             position: relative;
             border: 1px solid var(--border);
         }
-
         .detail-visual::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(255, 255, 255, 0.4) 0%, transparent 60%);
+            background: linear-gradient(to top, rgba(15,12,8,0.6) 0%, transparent 60%);
         }
-
         .detail-visual .char-emoji {
             position: absolute;
-            bottom: 5px;
-            right: 10px;
+            bottom: 5px; right: 10px;
             font-size: 3.5rem;
-            opacity: 0.15;
+            opacity: 0.2;
             z-index: 1;
-            line-height: 1;
         }
-
         .detail-breadcrumb {
             display: flex;
             align-items: center;
@@ -857,41 +560,29 @@
             margin-bottom: 0.8rem;
             flex-wrap: wrap;
         }
-
-        .detail-breadcrumb span {
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-
-        .detail-breadcrumb span:hover {
-            color: var(--accent);
-        }
-
+        .detail-breadcrumb span { cursor: pointer; transition: 0.2s; }
+        .detail-breadcrumb span:hover { color: var(--accent); }
         .detail-badge {
             display: inline-block;
-            padding: 0.2rem 0.7rem;
+            padding: 0.15rem 0.7rem;
             border-radius: 100px;
             font-size: 0.7rem;
             font-weight: 700;
             font-family: 'Rajdhani', sans-serif;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.5rem;
         }
-
         .detail-title {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 900;
             line-height: 1.2;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.3rem;
         }
-
         .detail-desc {
             color: var(--muted);
             font-size: 0.88rem;
-            line-height: 1.7;
+            line-height: 1.8;
             margin-bottom: 1.2rem;
         }
-
         .price-box {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -899,8 +590,8 @@
             padding: 1rem;
             margin-bottom: 1.2rem;
             box-shadow: var(--shadow);
+            backdrop-filter: blur(4px);
         }
-
         .price-box-lbl {
             font-size: 0.7rem;
             color: var(--muted);
@@ -909,59 +600,49 @@
             align-items: center;
             gap: 0.4rem;
         }
-
         .big-usd {
             font-family: 'Rajdhani', sans-serif;
-            font-size: 2.4rem;
+            font-size: 2.6rem;
             font-weight: 700;
             color: var(--accent);
             line-height: 1;
         }
-
         .big-lbl {
             font-size: 0.75rem;
             color: var(--muted);
             align-self: flex-end;
             margin-bottom: 0.2rem;
         }
-
         .dt-convert {
             display: flex;
             align-items: center;
             gap: 0.7rem;
-            background: rgba(241, 196, 15, 0.06);
-            border: 1px solid rgba(241, 196, 15, 0.15);
+            background: rgba(241,196,15,0.04);
+            border: 1px solid rgba(241,196,15,0.1);
             border-radius: 10px;
-            padding: 0.5rem 0.8rem;
+            padding: 0.4rem 0.8rem;
             margin-top: 0.6rem;
             flex-wrap: wrap;
         }
-
         .dt-amount {
             font-family: 'Rajdhani', sans-serif;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--gold);
         }
-
-        .dt-sub {
-            font-size: 0.7rem;
-            color: var(--muted);
-        }
-
+        .dt-sub { font-size: 0.7rem; color: var(--muted); }
         .orig-strike {
             font-size: 0.75rem;
             color: var(--muted);
             text-decoration: line-through;
             margin-top: 0.2rem;
         }
-
         .savings-pill {
             display: none;
             align-items: center;
             gap: 0.3rem;
-            background: rgba(39, 174, 96, 0.08);
-            border: 1px solid rgba(39, 174, 96, 0.2);
+            background: rgba(46,204,113,0.08);
+            border: 1px solid rgba(46,204,113,0.15);
             border-radius: 6px;
             padding: 0.15rem 0.5rem;
             font-size: 0.7rem;
@@ -975,49 +656,37 @@
             margin-bottom: 0.5rem;
             font-weight: 600;
         }
-
         .packages {
             display: flex;
             flex-direction: column;
             gap: 0.4rem;
             margin-bottom: 1.2rem;
         }
-
         .pkg {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0.6rem 0.8rem;
+            padding: 0.5rem 0.8rem;
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 10px;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.3s;
             box-shadow: var(--shadow);
+            backdrop-filter: blur(4px);
         }
-
-        .pkg:hover,
-        .pkg.active {
+        .pkg:hover, .pkg.active {
             border-color: var(--accent);
-            background: rgba(230, 126, 34, 0.04);
+            background: rgba(243,156,18,0.04);
         }
-
-        .pkg-name {
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .pkg-prices {
-            text-align: left;
-        }
-
+        .pkg-name { font-size: 0.85rem; font-weight: 600; }
+        .pkg-prices { text-align: left; }
         .pkg-usd {
             font-family: 'Rajdhani', sans-serif;
             font-size: 0.95rem;
             font-weight: 700;
             color: var(--accent);
         }
-
         .pkg-dt {
             font-family: 'Rajdhani', sans-serif;
             font-size: 0.8rem;
@@ -1030,22 +699,19 @@
             gap: 0.4rem;
             margin-bottom: 1.2rem;
         }
-
         .feat-tag {
             padding: 0.2rem 0.6rem;
-            background: rgba(230, 126, 34, 0.05);
-            border: 1px solid rgba(230, 126, 34, 0.1);
+            background: rgba(243,156,18,0.05);
+            border: 1px solid rgba(243,156,18,0.08);
             border-radius: 6px;
             font-size: 0.75rem;
             color: var(--text);
         }
-
         .action-row {
             display: flex;
             gap: 0.6rem;
             flex-wrap: wrap;
         }
-
         .btn-buy-now {
             flex: 1;
             min-width: 140px;
@@ -1053,19 +719,17 @@
             border-radius: 10px;
             background: linear-gradient(135deg, var(--accent), var(--accent2));
             border: none;
-            color: #fff;
+            color: #1a1410;
             font-family: 'Tajawal', sans-serif;
             font-size: 0.95rem;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.3s;
         }
-
         .btn-buy-now:hover {
-            box-shadow: 0 6px 24px rgba(230, 126, 34, 0.4);
-            transform: scale(1.02);
+            box-shadow: 0 6px 30px rgba(243,156,18,0.4);
+            transform: scale(1.03);
         }
-
         .btn-contact {
             padding: 0.8rem 1rem;
             border-radius: 10px;
@@ -1075,13 +739,11 @@
             font-family: 'Tajawal', sans-serif;
             font-size: 0.85rem;
             cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: var(--shadow);
+            transition: 0.3s;
         }
-
         .btn-contact:hover {
-            border-color: rgba(0, 0, 0, 0.2);
-            background: rgba(0, 0, 0, 0.02);
+            border-color: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.04);
         }
 
         .trust-row {
@@ -1090,7 +752,6 @@
             margin-top: 1rem;
             flex-wrap: wrap;
         }
-
         .trust-item {
             display: flex;
             align-items: center;
@@ -1104,71 +765,30 @@
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             gap: 0.6rem;
         }
+        .related-grid .product-card { min-height: auto; }
+        .related-grid .card-banner { height: 80px; font-size: 2.2rem; }
+        .related-grid .card-body { padding: 0.5rem 0.7rem; }
+        .related-grid .card-title { font-size: 0.8rem; }
+        .related-grid .price-usd { font-size: 0.9rem; }
+        .related-grid .price-dt { font-size: 0.8rem; }
+        .related-grid .btn-detail { padding: 0.3rem; font-size: 0.75rem; }
 
-        .related-grid .product-card {
-            min-height: auto;
-        }
-
-        .related-grid .card-banner {
-            height: 80px;
-            font-size: 2.2rem;
-        }
-
-        .related-grid .card-body {
-            padding: 0.5rem 0.7rem;
-        }
-
-        .related-grid .card-title {
-            font-size: 0.8rem;
-        }
-
-        .related-grid .card-prices {
-            margin-bottom: 0.3rem;
-        }
-
-        .related-grid .price-usd {
-            font-size: 0.9rem;
-        }
-
-        .related-grid .price-dt {
-            font-size: 0.8rem;
-        }
-
-        .related-grid .btn-detail {
-            padding: 0.3rem;
-            font-size: 0.75rem;
-        }
-
-        /* ============================================================
-           MODAL
-           ============================================================ */
+        /* ===== MODAL ===== */
         .modal-overlay {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(8px);
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(12px);
             z-index: 1000;
             align-items: center;
             justify-content: center;
         }
-
-        .modal-overlay.open {
-            display: flex;
-            animation: fadeIn 0.2s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
+        .modal-overlay.open { display: flex; animation: fadeIn 0.25s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         .modal {
-            background: var(--card);
+            background: #1f1814;
             border: 1px solid var(--border);
             border-radius: 20px;
             padding: 1.5rem;
@@ -1176,55 +796,27 @@
             width: 90%;
             position: relative;
             animation: slideUp 0.3s ease;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6);
         }
-
         @keyframes slideUp {
-            from {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
-
         .modal-close {
             position: absolute;
-            top: 0.7rem;
-            left: 0.7rem;
-            background: rgba(0, 0, 0, 0.04);
+            top: 0.7rem; left: 0.7rem;
+            background: rgba(255,255,255,0.04);
             border: none;
             color: var(--muted);
-            width: 28px;
-            height: 28px;
+            width: 28px; height: 28px;
             border-radius: 50%;
             cursor: pointer;
             font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
+            transition: 0.3s;
         }
-
-        .modal-close:hover {
-            background: rgba(0, 0, 0, 0.08);
-            color: var(--text);
-        }
-
-        .modal h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.2rem;
-        }
-
-        .modal-sub {
-            color: var(--muted);
-            font-size: 0.78rem;
-            margin-bottom: 1rem;
-        }
-
+        .modal-close:hover { background: rgba(255,255,255,0.08); color: var(--text); }
+        .modal h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.2rem; }
+        .modal-sub { color: var(--muted); font-size: 0.78rem; margin-bottom: 1rem; }
         .modal-price-box {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -1237,33 +829,25 @@
             flex-wrap: wrap;
             gap: 0.5rem;
         }
-
         .mpd-usd {
             font-family: 'Rajdhani', sans-serif;
             font-size: 1.7rem;
             font-weight: 700;
             color: var(--accent);
         }
-
         .mpd-dt {
             font-family: 'Rajdhani', sans-serif;
             font-size: 1.3rem;
             font-weight: 700;
             color: var(--gold);
         }
-
-        .mpd-lbl {
-            font-size: 0.65rem;
-            color: var(--muted);
-        }
-
+        .mpd-lbl { font-size: 0.65rem; color: var(--muted); }
         .pay-methods {
             display: flex;
             gap: 0.4rem;
             margin-bottom: 1rem;
             flex-wrap: wrap;
         }
-
         .pay-btn {
             flex: 1;
             min-width: 55px;
@@ -1273,47 +857,39 @@
             border-radius: 7px;
             color: var(--muted);
             font-family: 'Tajawal', sans-serif;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: 0.3s;
             text-align: center;
-            box-shadow: var(--shadow);
         }
-
-        .pay-btn:hover,
-        .pay-btn.active {
+        .pay-btn:hover, .pay-btn.active {
             border-color: var(--accent);
-            color: var(--accent);
-            background: rgba(230, 126, 34, 0.05);
+            color: var(--gold);
+            background: rgba(243,156,18,0.06);
         }
-
         .modal-confirm {
             width: 100%;
             padding: 0.7rem;
             border-radius: 10px;
             background: linear-gradient(135deg, var(--accent), var(--accent2));
             border: none;
-            color: #fff;
+            color: #1a1410;
             font-family: 'Tajawal', sans-serif;
             font-size: 0.9rem;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: 0.3s;
         }
-
         .modal-confirm:hover {
             transform: scale(1.02);
-            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.35);
+            box-shadow: 0 6px 24px rgba(243,156,18,0.3);
         }
 
-        /* ============================================================
-           TOAST
-           ============================================================ */
+        /* ===== TOAST ===== */
         .toast {
             position: fixed;
-            bottom: 1.5rem;
-            right: 1.5rem;
-            background: var(--card);
+            bottom: 1.5rem; right: 1.5rem;
+            background: #1f1814;
             border: 1px solid var(--green);
             border-radius: 12px;
             padding: 0.7rem 1rem;
@@ -1323,65 +899,41 @@
             z-index: 2000;
             transform: translateY(100px);
             opacity: 0;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            max-width: 260px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            max-width: 280px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
         }
-
-        .toast.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
+        .toast.show { transform: translateY(0); opacity: 1; }
         .toast-icon {
-            width: 28px;
-            height: 28px;
-            background: rgba(39, 174, 96, 0.1);
+            width: 28px; height: 28px;
+            background: rgba(46,204,113,0.08);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 0.85rem;
-            flex-shrink: 0;
         }
+        .toast-text strong { display: block; font-size: 0.8rem; margin-bottom: 0.05rem; }
+        .toast-text span { font-size: 0.7rem; color: var(--muted); }
 
-        .toast-text strong {
-            display: block;
-            font-size: 0.8rem;
-            margin-bottom: 0.05rem;
-        }
-
-        .toast-text span {
-            font-size: 0.7rem;
-            color: var(--muted);
-        }
-
-        /* ============================================================
-           FOOTER
-           ============================================================ */
+        /* ===== FOOTER ===== */
         footer {
-            position: relative;
-            z-index: 1;
             border-top: 1px solid var(--border);
             padding: 1.5rem 1rem;
             text-align: center;
             color: var(--muted);
             font-size: 0.75rem;
-            background: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
+            background: rgba(15,12,8,0.6);
+            backdrop-filter: blur(12px);
         }
-
         .footer-logo {
             font-family: 'Rajdhani', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--accent), var(--accent2));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background: linear-gradient(135deg, var(--accent), var(--gold));
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
             margin-bottom: 0.3rem;
         }
-
         .footer-links {
             display: flex;
             justify-content: center;
@@ -1389,312 +941,86 @@
             margin-top: 0.5rem;
             flex-wrap: wrap;
         }
-
         .footer-links a {
             color: var(--muted);
             text-decoration: none;
-            transition: color 0.2s;
+            transition: 0.2s;
             cursor: pointer;
             font-size: 0.75rem;
         }
+        .footer-links a:hover { color: var(--accent); }
 
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-
-        /* ============================================================
-           RESPONSIVE
-           ============================================================ */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
-            .detail-wrap {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .detail-visual {
-                height: 250px;
-                font-size: 5rem;
-            }
+            .detail-wrap { grid-template-columns: 1fr; gap: 1.5rem; }
+            .detail-visual { height: 250px; font-size: 5rem; }
         }
-
         @media (max-width: 768px) {
-            nav {
-                padding: 0 1rem;
-                height: 60px;
-                flex-wrap: wrap;
-            }
-
-            .logo {
-                font-size: 1.2rem;
-            }
-
-            .logo .logo-icon {
-                width: 32px;
-                height: 32px;
-                font-size: 1rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .nav-right {
-                gap: 0.5rem;
-            }
-
-            .btn-cart {
-                padding: 0.3rem 0.7rem;
-                font-size: 0.75rem;
-            }
-
-            .hero {
-                padding: 2rem 1rem 1.5rem;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .hero p {
-                font-size: 0.9rem;
-            }
-
-            .hero-stats {
-                gap: 1.5rem;
-            }
-
-            .stat-num {
-                font-size: 1.5rem;
-            }
-
-            .features-bar {
-                gap: 1rem;
-                padding: 0.8rem 1rem;
-            }
-
-            .feature-item {
-                font-size: 0.7rem;
-            }
-
-            .feature-item strong {
-                font-size: 0.7rem;
-            }
-
-            .section {
-                padding: 1.5rem 0.8rem;
-            }
-
-            .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-                gap: 0.8rem;
-            }
-
-            .card-banner {
-                height: 100px;
-                font-size: 2.4rem;
-            }
-
-            .character-emoji {
-                font-size: 1.8rem;
-            }
-
-            .card-body {
-                padding: 0.6rem 0.7rem;
-            }
-
-            .card-title {
-                font-size: 0.8rem;
-            }
-
-            .card-type {
-                font-size: 0.65rem;
-            }
-
-            .price-usd {
-                font-size: 0.95rem;
-            }
-
-            .price-dt {
-                font-size: 0.85rem;
-            }
-
-            .btn-detail {
-                font-size: 0.75rem;
-                padding: 0.4rem;
-            }
-
-            .detail-title {
-                font-size: 1.3rem;
-            }
-
-            .big-usd {
-                font-size: 2rem;
-            }
-
-            .detail-wrap {
-                padding: 1rem 0.8rem;
-            }
-
-            .related-grid {
-                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-            }
-
-            .modal {
-                padding: 1.2rem;
-                max-width: 95%;
-            }
-
-            .toast {
-                right: 1rem;
-                left: 1rem;
-                max-width: 90%;
-                bottom: 1rem;
-            }
-
-            .action-row {
-                flex-direction: column;
-            }
-
-            .btn-buy-now {
-                min-width: auto;
-                width: 100%;
-            }
-
-            .btn-contact {
-                width: 100%;
-            }
+            nav { padding: 0 1rem; height: 60px; flex-wrap: wrap; }
+            .logo { font-size: 1.2rem; }
+            .logo .logo-icon { width: 32px; height: 32px; font-size: 1rem; }
+            .nav-links { display: none; }
+            .btn-cart { padding: 0.3rem 0.7rem; font-size: 0.75rem; }
+            .hero { padding: 2rem 1rem 1.5rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero-stats { gap: 1.5rem; }
+            .stat-num { font-size: 1.5rem; }
+            .features-bar { gap: 1rem; padding: 0.8rem 1rem; }
+            .feature-item { font-size: 0.7rem; }
+            .products-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.8rem; }
+            .card-banner { height: 100px; font-size: 2.4rem; }
+            .character-emoji { font-size: 1.8rem; }
+            .card-body { padding: 0.5rem 0.7rem; }
+            .card-title { font-size: 0.8rem; }
+            .price-usd { font-size: 0.95rem; }
+            .price-dt { font-size: 0.85rem; }
+            .btn-detail { font-size: 0.75rem; padding: 0.4rem; }
+            .detail-title { font-size: 1.3rem; }
+            .big-usd { font-size: 2rem; }
+            .detail-wrap { padding: 1rem 0.8rem; }
+            .related-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+            .action-row { flex-direction: column; }
+            .btn-buy-now { min-width: auto; width: 100%; }
+            .btn-contact { width: 100%; }
+            .toast { right: 1rem; left: 1rem; max-width: 90%; bottom: 1rem; }
         }
-
         @media (max-width: 480px) {
-            .products-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 0.6rem;
-            }
-
-            .card-banner {
-                height: 80px;
-                font-size: 2rem;
-            }
-
-            .character-emoji {
-                font-size: 1.5rem;
-            }
-
-            .card-body {
-                padding: 0.5rem;
-            }
-
-            .card-title {
-                font-size: 0.7rem;
-            }
-
-            .price-usd {
-                font-size: 0.85rem;
-            }
-
-            .price-dt {
-                font-size: 0.75rem;
-            }
-
-            .price-orig {
-                font-size: 0.6rem;
-            }
-
-            .stock-label {
-                font-size: 0.55rem;
-            }
-
-            .btn-detail {
-                font-size: 0.65rem;
-                padding: 0.3rem;
-            }
-
-            .categories {
-                gap: 0.3rem;
-            }
-
-            .cat-btn {
-                font-size: 0.7rem;
-                padding: 0.3rem 0.7rem;
-            }
-
-            .search-input {
-                font-size: 0.75rem;
-                padding: 0.5rem 0.8rem;
-            }
-
-            .section-title h2 {
-                font-size: 1rem;
-            }
-
-            .detail-visual {
-                height: 180px;
-                font-size: 3.5rem;
-            }
-
-            .detail-visual .char-emoji {
-                font-size: 2.5rem;
-            }
-
-            .detail-title {
-                font-size: 1.1rem;
-            }
-
-            .big-usd {
-                font-size: 1.7rem;
-            }
-
-            .dt-amount {
-                font-size: 1.1rem;
-            }
-
-            .pkg {
-                padding: 0.4rem 0.6rem;
-            }
-
-            .pkg-name {
-                font-size: 0.75rem;
-            }
-
-            .pkg-usd {
-                font-size: 0.8rem;
-            }
-
-            .pkg-dt {
-                font-size: 0.7rem;
-            }
-
-            .trust-item {
-                font-size: 0.65rem;
-            }
-
-            .footer-links {
-                gap: 0.6rem;
-            }
-
-            .footer-links a {
-                font-size: 0.65rem;
-            }
+            .products-grid { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+            .card-banner { height: 80px; font-size: 2rem; }
+            .character-emoji { font-size: 1.5rem; }
+            .card-body { padding: 0.4rem; }
+            .card-title { font-size: 0.7rem; }
+            .price-usd { font-size: 0.85rem; }
+            .price-dt { font-size: 0.75rem; }
+            .btn-detail { font-size: 0.65rem; padding: 0.3rem; }
+            .cat-btn { font-size: 0.7rem; padding: 0.3rem 0.7rem; }
+            .section-title h2 { font-size: 1rem; }
+            .detail-visual { height: 180px; font-size: 3.5rem; }
+            .detail-visual .char-emoji { font-size: 2.5rem; }
+            .detail-title { font-size: 1.1rem; }
+            .big-usd { font-size: 1.7rem; }
+            .dt-amount { font-size: 1.1rem; }
+            .pkg { padding: 0.4rem 0.6rem; }
+            .pkg-name { font-size: 0.75rem; }
+            .trust-item { font-size: 0.65rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== أوراق متساقطة متحركة (خلفية ناروتوية) ===== -->
-    <div class="leaf" style="left:5%; animation-duration:22s; font-size:2.5rem;">🍃</div>
-    <div class="leaf" style="left:15%; animation-duration:18s; animation-delay:2s; font-size:1.8rem;">🍂</div>
-    <div class="leaf" style="left:30%; animation-duration:25s; animation-delay:4s; font-size:2.2rem;">🍃</div>
-    <div class="leaf" style="left:50%; animation-duration:20s; animation-delay:1s; font-size:3rem;">🍂</div>
-    <div class="leaf" style="left:70%; animation-duration:28s; animation-delay:3s; font-size:1.5rem;">🍃</div>
-    <div class="leaf" style="left:85%; animation-duration:16s; animation-delay:5s; font-size:2.8rem;">🍂</div>
-    <div class="leaf" style="left:92%; animation-duration:24s; animation-delay:7s; font-size:2rem;">🍃</div>
+    <!-- ===== أوراق متحركة ===== -->
+    <div class="leaf" style="left:5%; animation-duration:20s;">🍃</div>
+    <div class="leaf" style="left:18%; animation-duration:24s; animation-delay:2s; font-size:1.8rem;">🍂</div>
+    <div class="leaf" style="left:35%; animation-duration:28s; animation-delay:4s; font-size:2.2rem;">🍃</div>
+    <div class="leaf" style="left:55%; animation-duration:18s; animation-delay:1s; font-size:3rem;">🍂</div>
+    <div class="leaf" style="left:75%; animation-duration:26s; animation-delay:3s; font-size:1.6rem;">🍃</div>
+    <div class="leaf" style="left:88%; animation-duration:22s; animation-delay:5s; font-size:2.6rem;">🍂</div>
+    <div class="leaf" style="left:95%; animation-duration:30s; animation-delay:7s; font-size:2rem;">🍃</div>
 
-    <!-- ============================================================
-    NAVBAR
-    ============================================================ -->
+    <!-- ===== NAVBAR ===== -->
     <nav>
         <div class="logo" onclick="goHome()">
-            <div class="logo-icon">🍃</div>
+            <div class="logo-icon">🍥</div>
             <span>Naruto</span> Shop
         </div>
         <div class="nav-right">
@@ -1712,9 +1038,7 @@
         </div>
     </nav>
 
-    <!-- ============================================================
-    HOME PAGE
-    ============================================================ -->
+    <!-- ===== HOME PAGE ===== -->
     <div id="pageHome" class="page">
         <section class="hero">
             <div class="hero-badge">
@@ -1740,9 +1064,7 @@
 
         <section class="section">
             <div class="section-title"><h2>🛍️ جميع المنتجات</h2></div>
-            <div class="search-wrap">
-                <input class="search-input" type="text" placeholder="🔍 ابحث عن منتجك..." oninput="filterSearch(this.value)">
-            </div>
+            <input class="search-input" type="text" placeholder="🔍 ابحث عن منتجك..." oninput="filterSearch(this.value)">
             <div class="categories" id="catsBar">
                 <button class="cat-btn active" onclick="filterCat('all',this)">🌐 الكل</button>
                 <button class="cat-btn" onclick="filterCat('streaming',this)">🎬 ستريمنغ</button>
@@ -1764,13 +1086,11 @@
                 <a href="https://instagram.com/1_22na" target="_blank">📸 1_22na</a>
                 <a>💬 1_22na</a>
             </div>
-            <div style="margin-top:.5rem;color:rgba(100,116,139,.4);font-size:.65rem">© 2025 Naruto Shop · 🍃</div>
+            <div style="margin-top:.5rem;color:rgba(180,160,140,0.3);font-size:.6rem">© 2025 Naruto Shop · 🌀 كنز الشينوبي</div>
         </footer>
     </div>
 
-    <!-- ============================================================
-    DETAIL PAGE
-    ============================================================ -->
+    <!-- ===== DETAIL PAGE ===== -->
     <div id="pageDetail" class="page" style="display:none">
         <section class="section" style="padding-top:1rem">
             <div class="detail-wrap">
@@ -1832,9 +1152,7 @@
         </section>
     </div>
 
-    <!-- ============================================================
-    ORDER MODAL
-    ============================================================ -->
+    <!-- ===== ORDER MODAL ===== -->
     <div class="modal-overlay" id="orderModal" onclick="if(event.target===this)closeModal()">
         <div class="modal">
             <button class="modal-close" onclick="closeModal()">✕</button>
@@ -1849,7 +1167,7 @@
             <div style="font-size:.75rem;color:var(--muted);margin-bottom:.5rem">طريقة الدفع</div>
             <div class="pay-methods">
                 <button class="pay-btn active">💳 بطاقة</button>
-                <button class="pay-btn" onclick="togglePay(this)">📱 cwarit ooredoo</button>
+                <button class="pay-btn" onclick="togglePay(this)">📱 cwarit</button>
                 <button class="pay-btn" onclick="togglePay(this)">📱 D17</button>
                 <button class="pay-btn" onclick="togglePay(this)">🟠 Flouci</button>
             </div>
@@ -1857,22 +1175,16 @@
         </div>
     </div>
 
-    <!-- ============================================================
-    TOAST
-    ============================================================ -->
+    <!-- ===== TOAST ===== -->
     <div class="toast" id="toast">
         <div class="toast-icon">✅</div>
         <div class="toast-text"><strong>تم تأكيد طلبك!</strong><span>سيصلك المفتاح خلال دقائق 🚀</span></div>
     </div>
 
-    <!-- ============================================================
-    JAVASCRIPT
-    ============================================================ -->
     <script>
         const RATE = 5;
         const toDT = usd => (usd * RATE).toFixed(0);
 
-        // ===== PRODUCTS – NARUTO THEMED =====
         const PRODUCTS = [{
             id: 'netflix',
             name: 'Netflix Premium',
@@ -1883,12 +1195,10 @@
             badgeText: '🔥 الأكثر مبيعاً',
             charEmoji: '🦅',
             type: 'حساب مشترك · شاشة خاصة',
-            desc: 'اشتراك نتفليكس بجودة 4K UHD مع شاشة خاصة. تشمل جميع الأفلام والمسلسلات بدون انقطاع. تسليم فوري بعد الدفع مباشرة.',
+            desc: 'اشتراك نتفليكس بجودة 4K UHD مع شاشة خاصة. تشمل جميع الأفلام والمسلسلات بدون انقطاع.',
             features: ['4K UHD', 'شاشة خاصة', 'كل المسلسلات', 'تحديث تلقائي', 'ضمان كامل', '🧡 مثل ناروتو'],
-            packages: [{ name: 'شهر واحد', usd: 4.5, orig: 12 }, { name: '3 أشهر · وفر 20%', usd: 10, orig: 28 },
-            { name: '6 أشهر · وفر 35%', usd: 17, orig: 50 }],
-            stock: 87,
-            stockPct: 85
+            packages: [{ name: 'شهر واحد', usd: 4.5, orig: 12 }, { name: '3 أشهر · وفر 20%', usd: 10, orig: 28 }, { name: '6 أشهر · وفر 35%', usd: 17, orig: 50 }],
+            stock: 87, stockPct: 85
         }, {
             id: 'spotify',
             name: 'Spotify Premium',
@@ -1899,12 +1209,10 @@
             badgeText: '✨ جديد',
             charEmoji: '🎸',
             type: 'اشتراك شخصي · بدون إعلانات',
-            desc: 'استمع لأي موسيقى بدون إعلانات ومن غير اتصال بالإنترنت. جودة صوت عالية مع تخطي غير محدود للأغاني.',
+            desc: 'استمع لأي موسيقى بدون إعلانات ومن غير اتصال بالإنترنت.',
             features: ['بدون إعلانات', 'Offline', 'جودة عالية', 'تخطي غير محدود', 'كل الأجهزة', '🎵 مثل ساسكي'],
-            packages: [{ name: 'شهر واحد', usd: 3.5, orig: 10 }, { name: '3 أشهر', usd: 8, orig: 25 },
-            { name: '6 أشهر · وفر 25%', usd: 13, orig: 45 }],
-            stock: 123,
-            stockPct: 92
+            packages: [{ name: 'شهر واحد', usd: 3.5, orig: 10 }, { name: '3 أشهر', usd: 8, orig: 25 }, { name: '6 أشهر · وفر 25%', usd: 13, orig: 45 }],
+            stock: 123, stockPct: 92
         }, {
             id: 'nitro',
             name: 'Discord Nitro',
@@ -1918,9 +1226,7 @@
             desc: 'فعّل Discord Nitro واستمتع بـ emojis مخصصة، رفع ملفات بحجم كبير، وتحسين جودة الفيديو والصوت.',
             features: ['Boost x2', 'Emojis مخصصة', 'ملفات 500MB', 'فيديو HD', 'شارة خاصة', '🟣 مثل إيتاشي'],
             packages: [{ name: 'شهر واحد', usd: 5, orig: 9.99 }, { name: 'سنة كاملة · وفر 16%', usd: 49, orig: 99.99 }],
-            stock: 12,
-            stockPct: 18,
-            lowStock: true
+            stock: 12, stockPct: 18, lowStock: true
         }, {
             id: 'steam',
             name: 'Steam Wallet',
@@ -1931,12 +1237,10 @@
             badgeText: '🔥 رائج',
             charEmoji: '⛰️',
             type: 'رصيد Steam · جميع المناطق',
-            desc: 'أضف رصيداً لحساب Steam الخاص بك واشتري أي لعبة تريدها. يعمل مع جميع المناطق بدون قيود.',
+            desc: 'أضف رصيداً لحساب Steam الخاص بك واشتري أي لعبة تريدها.',
             features: ['Global', 'كل الألعاب', 'تسليم فوري', 'لا انتهاء', 'مضمون', '⛰️ مثل أونوكي'],
-            packages: [{ name: '5 دولار', usd: 5 }, { name: '10 دولار', usd: 10 }, { name: '20 دولار', usd: 20 },
-            { name: '50 دولار', usd: 50 }],
-            stock: 250,
-            stockPct: 70
+            packages: [{ name: '5 دولار', usd: 5 }, { name: '10 دولار', usd: 10 }, { name: '20 دولار', usd: 20 }, { name: '50 دولار', usd: 50 }],
+            stock: 250, stockPct: 70
         }, {
             id: 'xbox',
             name: 'Xbox Game Pass Ultimate',
@@ -1947,11 +1251,10 @@
             badgeText: '✨ جديد',
             charEmoji: '🌿',
             type: 'شهر كامل · PC + Console',
-            desc: 'أكثر من 100 لعبة للتحميل المجاني على Xbox وPC مع EA Play وCloud Gaming مدرجان.',
+            desc: 'أكثر من 100 لعبة للتحميل المجاني على Xbox وPC مع EA Play وCloud Gaming.',
             features: ['100+ لعبة', 'EA Play', 'Cloud Gaming', 'PC+Console', 'Xbox Live Gold', '🌿 مثل هاشيراما'],
             packages: [{ name: 'شهر واحد', usd: 7, orig: 14.99 }, { name: '3 أشهر', usd: 18, orig: 40 }],
-            stock: 45,
-            stockPct: 55
+            stock: 45, stockPct: 55
         }, {
             id: 'ps',
             name: 'PSN Gift Card',
@@ -1965,8 +1268,7 @@
             desc: 'بطاقة هدية PlayStation لشراء الألعاب والمحتوى الرقمي مباشرة على متجر PS4 وPS5.',
             features: ['PS4/PS5', 'Global', 'فوري', 'كل المتاجر', 'لا انتهاء', '🌫️ مثل زابوزا'],
             packages: [{ name: '10 دولار', usd: 10 }, { name: '20 دولار', usd: 20 }, { name: '50 دولار', usd: 50 }],
-            stock: 78,
-            stockPct: 65
+            stock: 78, stockPct: 65
         }, {
             id: 'pubg',
             name: 'PUBG Mobile UC',
@@ -1977,12 +1279,10 @@
             badgeText: '🔥 طلب عالي',
             charEmoji: '🏜️',
             type: 'عملة داخل اللعبة',
-            desc: 'احصل على UC لشراء الـ Royale Pass والأزياء والأسلحة الحصرية في PUBG Mobile. تسليم فوري.',
+            desc: 'احصل على UC لشراء الـ Royale Pass والأزياء والأسلحة الحصرية في PUBG Mobile.',
             features: ['Global', 'فوري', 'Royale Pass', 'ملابس حصرية', '100% مضمون', '🏜️ مثل غارا'],
-            packages: [{ name: '60 UC', usd: 1, orig: 2 }, { name: '325 UC', usd: 5, orig: 8 },
-            { name: '660 UC', usd: 6, orig: 10 }, { name: '1800 UC', usd: 15, orig: 22 }],
-            stock: 500,
-            stockPct: 95
+            packages: [{ name: '60 UC', usd: 1, orig: 2 }, { name: '325 UC', usd: 5, orig: 8 }, { name: '660 UC', usd: 6, orig: 10 }, { name: '1800 UC', usd: 15, orig: 22 }],
+            stock: 500, stockPct: 95
         }, {
             id: 'valo',
             name: 'Valorant VP',
@@ -1993,11 +1293,10 @@
             badgeText: '✨ جديد',
             charEmoji: '⚡',
             type: 'نقاط فالورانت',
-            desc: 'اشتري VP Points لفالورانت وافتح السكينات والـ Battle Pass والعروض الحصرية داخل اللعبة.',
+            desc: 'اشتري VP Points لفالورانت وافتح السكينات والـ Battle Pass والعروض الحصرية.',
             features: ['Global', 'فوري', 'سكينات حصرية', 'Battle Pass', 'Agent Skins', '⚡ مثل تشيدوري'],
             packages: [{ name: '475 VP', usd: 5 }, { name: '1000 VP', usd: 7 }, { name: '2050 VP', usd: 20 }],
-            stock: 200,
-            stockPct: 80
+            stock: 200, stockPct: 80
         }, {
             id: 'youtube',
             name: 'YouTube Premium',
@@ -2011,11 +1310,10 @@
             desc: 'شاهد يوتيوب بدون أي إعلان مع YouTube Music Premium مجاناً. حمّل الفيديوهات للمشاهدة بدون نت.',
             features: ['بدون إعلانات', 'YT Music', 'Offline', 'Background Play', 'شهر كامل', '🍃 مثل ناروتو'],
             packages: [{ name: 'شهر واحد', usd: 4, orig: 13.99 }, { name: '3 أشهر', usd: 10, orig: 36 }],
-            stock: 60,
-            stockPct: 50
+            stock: 60, stockPct: 50
         }, {
             id: 'minecraft',
-            name: 'Minecraft Java Edition',
+            name: 'Minecraft Java',
             cat: 'gaming',
             icon: '⛏️',
             banner: 'banner-stone',
@@ -2023,12 +1321,10 @@
             badgeText: '✅ متوفر',
             charEmoji: '⛰️',
             type: 'حساب كامل · مدى الحياة',
-            desc: 'حساب Minecraft Java Edition أصلي مدى الحياة مع كل التحديثات المستقبلية مجاناً بدون رسوم إضافية.',
+            desc: 'حساب Minecraft Java Edition أصلي مدى الحياة مع كل التحديثات المستقبلية مجاناً.',
             features: ['Java Edition', 'مدى الحياة', 'تحديثات مجانية', 'Multiplayer', 'Mods دعم', '⛰️ مثل كاغوزو'],
             packages: [{ name: 'حساب كامل مدى الحياة', usd: 12, orig: 49.99 }],
-            stock: 8,
-            stockPct: 12,
-            lowStock: true
+            stock: 8, stockPct: 12, lowStock: true
         }, {
             id: 'fifa26',
             name: 'FIFA 26',
@@ -2039,12 +1335,10 @@
             badgeText: '✨ جديد',
             charEmoji: '🔥',
             type: 'حساب كامل · مدى الحياة',
-            desc: 'حساب FIFA 26 أصلي مدى الحياة مع كل التحديثات المستقبلية مجاناً بدون رسوم إضافية.',
+            desc: 'حساب FIFA 26 أصلي مدى الحياة مع كل التحديثات المستقبلية مجاناً.',
             features: ['مدى الحياة', 'تحديثات مجانية', 'Multiplayer', 'Ultimate Team', 'كل الأوضاع', '🔥 مثل الهوكاغي'],
             packages: [{ name: 'حساب كامل مدى الحياة', usd: 15, orig: 75 }],
-            stock: 8,
-            stockPct: 12,
-            lowStock: true
+            stock: 8, stockPct: 12, lowStock: true
         }, {
             id: 'freefire',
             name: 'Free Fire Diamonds',
@@ -2055,12 +1349,10 @@
             badgeText: '🔥 رائج',
             charEmoji: '🦊',
             type: 'عملة داخل اللعبة',
-            desc: 'احصل على Diamonds لشراء الـ Royale Pass والأزياء والأسلحة الحصرية في Free Fire. تسليم فوري.',
+            desc: 'احصل على Diamonds لشراء الـ Royale Pass والأزياء والأسلحة الحصرية في Free Fire.',
             features: ['Global', 'فوري', 'Royale Pass', 'ملابس حصرية', '100% مضمون', '🦊 مثل تسعة الذيول'],
-            packages: [{ name: '100 Diamonds', usd: 1, orig: 5 }, { name: '210 Diamonds', usd: 5, orig: 8 },
-            { name: '500 Diamonds', usd: 6, orig: 25 }, { name: '1080 Diamonds', usd: 15, orig: 50 }],
-            stock: 500,
-            stockPct: 95
+            packages: [{ name: '100 Diamonds', usd: 1, orig: 5 }, { name: '210 Diamonds', usd: 5, orig: 8 }, { name: '500 Diamonds', usd: 6, orig: 25 }, { name: '1080 Diamonds', usd: 15, orig: 50 }],
+            stock: 500, stockPct: 95
         }, {
             id: 'brawlstars',
             name: 'Brawl Stars Gems',
@@ -2071,17 +1363,13 @@
             badgeText: '💰 عرض',
             charEmoji: '🧘',
             type: 'عملة داخل اللعبة',
-            desc: 'احصل على Gems لشراء الـ Brawl Pass والأزياء الحصرية في Brawl Stars. تسليم فوري.',
+            desc: 'احصل على Gems لشراء الـ Brawl Pass والأزياء الحصرية في Brawl Stars.',
             features: ['Global', 'فوري', 'Brawl Pass', 'ملابس حصرية', '100% مضمون', '🧘 مثل الحكيم'],
-            packages: [{ name: '30 Gemmes', usd: 2 }, { name: '80 Gemmes', usd: 3.4 }, { name: '170 Gemmes',
-                usd: 5.6 }, { name: '360 Gemmes', usd: 10 }, { name: '950 Gemmes', usd: 23.6 },
-            { name: '2000 Gemmes', usd: 46 }, { name: 'Brawl Pass', usd: 7 }, { name: 'Brawl Pass Plus',
-                usd: 9.2 }, { name: 'Brawl Pass Pro', usd: 12.4 }],
-            stock: 500,
-            stockPct: 95
+            packages: [{ name: '30 Gemmes', usd: 2 }, { name: '80 Gemmes', usd: 3.4 }, { name: '170 Gemmes', usd: 5.6 }, { name: '360 Gemmes', usd: 10 }, { name: '950 Gemmes', usd: 23.6 }, { name: '2000 Gemmes', usd: 46 }, { name: 'Brawl Pass', usd: 7 }, { name: 'Brawl Pass Plus', usd: 9.2 }, { name: 'Brawl Pass Pro', usd: 12.4 }],
+            stock: 500, stockPct: 95
         }, {
             id: 'ark',
-            name: 'ARK Survival Evolved',
+            name: 'ARK Survival',
             cat: 'gaming',
             icon: '🦖',
             banner: 'banner-susanoo',
@@ -2089,12 +1377,10 @@
             badgeText: '🔥 رائج',
             charEmoji: '🌀',
             type: 'حساب كامل · مدى الحياة',
-            desc: 'حساب ARK Survival Evolved أصلي مدى الحياة مع كل التحديثات المستقبلية مجاناً بدون رسوم إضافية.',
+            desc: 'حساب ARK Survival Evolved أصلي مدى الحياة مع كل التحديثات المستقبلية مجاناً.',
             features: ['مدى الحياة', 'تحديثات مجانية', 'Multiplayer', 'Mods دعم', 'PvP+PvE', '🌀 مثل سوسانو'],
             packages: [{ name: 'حساب كامل مدى الحياة', usd: 12, orig: 29.99 }],
-            stock: 8,
-            stockPct: 12,
-            lowStock: true
+            stock: 8, stockPct: 12, lowStock: true
         }, {
             id: 'adobe',
             name: 'Adobe Creative Cloud',
@@ -2105,12 +1391,10 @@
             badgeText: '✨ جديد',
             charEmoji: '☁️',
             type: 'اشتراك شهري · كل التطبيقات',
-            desc: 'احصل على وصول كامل إلى جميع تطبيقات Adobe مثل Photoshop وIllustrator وPremiere Pro مع تحديثات مستمرة.',
+            desc: 'احصل على وصول كامل إلى جميع تطبيقات Adobe مثل Photoshop وIllustrator وPremiere Pro.',
             features: ['كل التطبيقات', 'تحديثات مستمرة', 'تخزين سحابي', 'دعم فني', 'اشتراك شهري', '☁️ مثل الأكاتسكي'],
-            packages: [{ name: 'شهر واحد', usd: 20, orig: 52.99 }, { name: 'سنة كاملة · وفر 15%', usd: 200,
-                orig: 599.88 }],
-            stock: 30,
-            stockPct: 40
+            packages: [{ name: 'شهر واحد', usd: 20, orig: 52.99 }, { name: 'سنة كاملة · وفر 15%', usd: 200, orig: 599.88 }],
+            stock: 30, stockPct: 40
         }, {
             id: 'fortnite',
             name: 'Fortnite V-Bucks',
@@ -2121,12 +1405,10 @@
             badgeText: '🔥 رائج',
             charEmoji: '🌀',
             type: 'عملة داخل اللعبة',
-            desc: 'احصل على V-Bucks لشراء الـ Battle Pass والأزياء الحصرية في Fortnite. تسليم فوري.',
+            desc: 'احصل على V-Bucks لشراء الـ Battle Pass والأزياء الحصرية في Fortnite.',
             features: ['Global', 'فوري', 'Battle Pass', 'ملابس حصرية', '100% مضمون', '🌀 مثل الراسينغان'],
-            packages: [{ name: '1000 V-Bucks', usd: 10, orig: 40 }, { name: '2800 V-Bucks', usd: 20, orig: 60 },
-            { name: '5000 V-Bucks', usd: 35, orig: 70 }],
-            stock: 500,
-            stockPct: 95
+            packages: [{ name: '1000 V-Bucks', usd: 10, orig: 40 }, { name: '2800 V-Bucks', usd: 20, orig: 60 }, { name: '5000 V-Bucks', usd: 35, orig: 70 }],
+            stock: 500, stockPct: 95
         }, {
             id: 'naruto1',
             name: 'Naruto Shippuden Box',
@@ -2137,12 +1419,10 @@
             badgeText: '🍥 إصدار محدود',
             charEmoji: '🍥',
             type: 'مشاهدة كل الحلقات',
-            desc: 'احصل على جميع حلقات ناروتو شيبودن بجودة HD مع الترجمة العربية. تسليم فوري.',
+            desc: 'احصل على جميع حلقات ناروتو شيبودن بجودة HD مع الترجمة العربية.',
             features: ['HD Quality', 'جميع الحلقات', 'ترجمة عربية', 'مدى الحياة', '🎴 مثل أوروتشيمارو'],
             packages: [{ name: 'مشاهدة مدى الحياة', usd: 3, orig: 15 }],
-            stock: 10,
-            stockPct: 15,
-            lowStock: true
+            stock: 10, stockPct: 15, lowStock: true
         }, {
             id: 'naruto2',
             name: 'Naruto Manga Collection',
@@ -2153,21 +1433,14 @@
             badgeText: '📚 كل المانجا',
             charEmoji: '📖',
             type: 'جميع أجزاء المانجا',
-            desc: 'مجموعة كاملة من مانجا ناروتو الأصلية بجودة عالية. تسليم فوري.',
+            desc: 'مجموعة كاملة من مانجا ناروتو الأصلية بجودة عالية.',
             features: ['جميع الأجزاء', 'جودة عالية', 'ترجمة عربية', 'مدى الحياة', '🍃 مثل جيرايا'],
             packages: [{ name: 'المجموعة الكاملة', usd: 2, orig: 10 }],
-            stock: 15,
-            stockPct: 20,
-            lowStock: true
+            stock: 15, stockPct: 20, lowStock: true
         }];
 
-        // ===== STATE =====
-        let currentCat = 'all',
-            cartCount = 0,
-            selProd = null,
-            selPkg = 0;
+        let currentCat = 'all', cartCount = 0, selProd = null, selPkg = 0;
 
-        // ===== INIT =====
         function init() {
             const grid = document.getElementById('productsGrid');
             grid.innerHTML = '';
@@ -2178,34 +1451,33 @@
                 c.className = 'product-card';
                 c.dataset.cat = p.cat;
                 c.dataset.name = p.name.toLowerCase();
-                c.style.animationDelay = (i * 0.05) + 's';
+                c.style.animationDelay = (i * 0.04) + 's';
                 c.onclick = () => openDetail(p.id);
                 c.innerHTML = `
-              <div class="card-banner ${p.banner}">
-                <span class="card-badge ${p.badge}">${p.badgeText}</span>
-                <span class="character-emoji">${p.charEmoji}</span>
-                ${p.icon}
-              </div>
-              <div class="card-body">
-                <div class="card-title">${p.name}</div>
-                <div class="card-type">${p.type}</div>
-                <div class="card-prices">
-                  <span class="price-usd">$${pkg0.usd}</span>
-                  <span class="price-sep">·</span>
-                  <span class="price-dt">${toDT(pkg0.usd)} DT</span>
-                  ${pkg0.orig?`<span class="price-orig">$${pkg0.orig}</span>`:''}
-                </div>
-                <div class="stock-bar${low?' stock-low':''}">
-                  <div class="stock-label"><span>المخزون</span><span>${low?'⚠️ ':''}${p.stock} قطعة</span></div>
-                  <div class="stock-track"><div class="stock-fill" style="width:${p.stockPct}%"></div></div>
-                </div>
-                <button class="btn-detail">عرض التفاصيل ←</button>
-              </div>`;
+                    <div class="card-banner ${p.banner}">
+                        <span class="card-badge ${p.badge}">${p.badgeText}</span>
+                        <span class="character-emoji">${p.charEmoji}</span>
+                        ${p.icon}
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">${p.name}</div>
+                        <div class="card-type">${p.type}</div>
+                        <div class="card-prices">
+                            <span class="price-usd">$${pkg0.usd}</span>
+                            <span class="price-sep">·</span>
+                            <span class="price-dt">${toDT(pkg0.usd)} DT</span>
+                            ${pkg0.orig?`<span class="price-orig">$${pkg0.orig}</span>`:''}
+                        </div>
+                        <div class="stock-bar${low?' stock-low':''}">
+                            <div class="stock-label"><span>المخزون</span><span>${low?'⚠️ ':''}${p.stock} قطعة</span></div>
+                            <div class="stock-track"><div class="stock-fill" style="width:${p.stockPct}%"></div></div>
+                        </div>
+                        <button class="btn-detail">عرض التفاصيل ←</button>
+                    </div>`;
                 grid.appendChild(c);
             });
         }
 
-        // ===== FILTERS =====
         function filterCat(cat, btn) {
             currentCat = cat;
             document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
@@ -2213,24 +1485,20 @@
             applyFilters();
         }
 
-        function filterSearch(q) { applyFilters(q.toLowerCase()); }
+        function filterSearch(q = '') { applyFilters(q.toLowerCase()); }
 
         function applyFilters(q = '') {
             document.querySelectorAll('.product-card').forEach(c => {
                 c.classList.toggle('hidden',
-                    !((currentCat === 'all' || c.dataset.cat === currentCat) && (!q || c.dataset.name.includes(
-                    q)))
+                    !((currentCat === 'all' || c.dataset.cat === currentCat) && (!q || c.dataset.name.includes(q)))
                 );
             });
         }
 
-        // ===== NAVIGATION =====
         function goHome() {
             document.getElementById('pageDetail').style.display = 'none';
             document.getElementById('pageHome').style.display = 'block';
-            document.getElementById('pageHome').classList.add('page-enter');
             document.getElementById('btnBack').style.display = 'none';
-            setTimeout(() => document.getElementById('pageHome').classList.remove('page-enter'), 400);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -2242,25 +1510,19 @@
                     return fn.includes(`'${cat}'`);
                 });
                 if (btn) filterCat(cat, btn);
-            }, 50);
+            }, 60);
         }
 
-        // ===== DETAIL =====
         function openDetail(id) {
             const p = PRODUCTS.find(x => x.id === id);
             if (!p) return;
-            selProd = p;
-            selPkg = 0;
+            selProd = p; selPkg = 0;
 
             const vis = document.getElementById('dVisual');
             vis.className = `detail-visual ${p.banner}`;
-            vis.innerHTML = `
-            ${p.icon}
-            <span class="char-emoji">${p.charEmoji}</span>
-          `;
+            vis.innerHTML = `${p.icon}<span class="char-emoji">${p.charEmoji}</span>`;
 
-            const catMap = { streaming: 'الاشتراكات', gaming: 'الألعاب', social: 'سوشيال', microsoft: 'مايكروسوفت',
-                software: 'البرامج', naruto: 'ناروتو' };
+            const catMap = { streaming: 'الاشتراكات', gaming: 'الألعاب', social: 'سوشيال', microsoft: 'مايكروسوفت', software: 'البرامج', naruto: 'ناروتو' };
             document.getElementById('dCatLbl').textContent = catMap[p.cat] || p.cat;
             document.getElementById('dBreadName').textContent = p.name;
             const badge = document.getElementById('dBadge');
@@ -2275,13 +1537,11 @@
                 const el = document.createElement('div');
                 el.className = 'pkg' + (i === 0 ? ' active' : '');
                 el.onclick = () => selectPkg(i);
-                el.innerHTML =
-                `<span class="pkg-name">${pkg.name}</span><div class="pkg-prices"><div class="pkg-usd">$${pkg.usd}</div><div class="pkg-dt">${toDT(pkg.usd)} DT</div></div>`;
+                el.innerHTML = `<span class="pkg-name">${pkg.name}</span><div class="pkg-prices"><div class="pkg-usd">$${pkg.usd}</div><div class="pkg-dt">${toDT(pkg.usd)} DT</div></div>`;
                 pkgList.appendChild(el);
             });
 
-            document.getElementById('featList').innerHTML = p.features.map(f =>
-                `<span class="feat-tag">${f}</span>`).join('');
+            document.getElementById('featList').innerHTML = p.features.map(f => `<span class="feat-tag">${f}</span>`).join('');
             updatePrice(p, 0);
 
             const rel = PRODUCTS.filter(x => x.id !== p.id && x.cat === p.cat).slice(0, 4);
@@ -2293,35 +1553,31 @@
                 el.className = 'product-card';
                 el.onclick = () => openDetail(r.id);
                 el.innerHTML = `
-              <div class="card-banner ${r.banner}" style="height:80px;font-size:2.2rem">
-                <span class="character-emoji" style="font-size:1.5rem">${r.charEmoji}</span>
-                ${r.icon}
-              </div>
-              <div class="card-body">
-                <div class="card-title" style="font-size:0.8rem">${r.name}</div>
-                <div class="card-prices" style="margin-bottom:0.3rem">
-                  <span class="price-usd" style="font-size:0.9rem">$${pkg0.usd}</span>
-                  <span class="price-sep">·</span>
-                  <span class="price-dt" style="font-size:0.8rem">${toDT(pkg0.usd)} DT</span>
-                </div>
-                <button class="btn-detail" style="padding:0.3rem;font-size:0.7rem">عرض ←</button>
-              </div>`;
+                    <div class="card-banner ${r.banner}" style="height:80px;font-size:2.2rem">
+                        <span class="character-emoji" style="font-size:1.5rem">${r.charEmoji}</span>
+                        ${r.icon}
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title" style="font-size:0.8rem">${r.name}</div>
+                        <div class="card-prices" style="margin-bottom:0.3rem">
+                            <span class="price-usd" style="font-size:0.9rem">$${pkg0.usd}</span>
+                            <span class="price-sep">·</span>
+                            <span class="price-dt" style="font-size:0.8rem">${toDT(pkg0.usd)} DT</span>
+                        </div>
+                        <button class="btn-detail" style="padding:0.3rem;font-size:0.7rem">عرض ←</button>
+                    </div>`;
                 rg.appendChild(el);
             });
 
             document.getElementById('pageHome').style.display = 'none';
             document.getElementById('pageDetail').style.display = 'block';
-            document.getElementById('pageDetail').classList.add('page-enter');
             document.getElementById('btnBack').style.display = 'flex';
-            setTimeout(() => document.getElementById('pageDetail').classList.remove('page-enter'), 400);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function selectPkg(i) {
-            selPkg = i;
+        function selectPkg(i) { selPkg = i;
             document.querySelectorAll('#pkgList .pkg').forEach((el, j) => el.classList.toggle('active', j === i));
-            updatePrice(selProd, i);
-        }
+            updatePrice(selProd, i); }
 
         function updatePrice(p, i) {
             const pkg = p.packages[i];
@@ -2334,13 +1590,10 @@
                 const pct = Math.round((1 - pkg.usd / pkg.orig) * 100);
                 document.getElementById('savingsTxt').textContent = `توفر ${pct}% مقارنة بالسعر الأصلي`;
                 pill.style.display = 'inline-flex';
-            } else {
-                orig.textContent = '';
-                pill.style.display = 'none';
-            }
+            } else { orig.textContent = '';
+                pill.style.display = 'none'; }
         }
 
-        // ===== MODAL =====
         function openOrderModal() {
             if (!selProd) return;
             const pkg = selProd.packages[selPkg];
@@ -2369,30 +1622,20 @@
             setTimeout(() => t.classList.remove('show'), 3500);
 
             const pkg = selProd.packages[selPkg];
-            const payMethod = [...document.querySelectorAll('.pay-btn')].find(b => b.classList.contains('active'))
-            ?.textContent || 'غير محدد';
-            const msg =
-                `🛒 *طلب جديد من Naruto Shop*\n\n` +
-                `🍃 *المنتج:* ${selProd.name}\n` +
-                `📦 *الباقة:* ${pkg.name}\n` +
-                `💵 *السعر:* $${pkg.usd} — ${toDT(pkg.usd)} DT\n` +
-                `💳 *طريقة الدفع:* ${payMethod}\n\n` +
-                `⚡ أرجو التأكيد والتسليم فوري!`;
-
+            const payMethod = [...document.querySelectorAll('.pay-btn')].find(b => b.classList.contains('active'))?.textContent || 'غير محدد';
+            const msg = `🛒 *طلب جديد من Naruto Shop*\n\n🍃 *المنتج:* ${selProd.name}\n📦 *الباقة:* ${pkg.name}\n💵 *السعر:* $${pkg.usd} — ${toDT(pkg.usd)} DT\n💳 *طريقة الدفع:* ${payMethod}\n\n⚡ أرجو التأكيد والتسليم فوري!`;
             setTimeout(() => {
                 window.open('https://wa.me/21693243981?text=' + encodeURIComponent(msg), '_blank');
-            }, 800);
+            }, 600);
         }
 
         function openCart() {
             if (cartCount === 0) { alert('السلة فارغة! تصفح المنتجات وأضف ما يعجبك.'); return; }
-            window.open('https://wa.me/21693243981?text=مرحبا، عندي ' + cartCount + ' منتج في السلة وحاب نكمل الطلب 🛒',
-                '_blank');
+            window.open('https://wa.me/21693243981?text=مرحبا، عندي ' + cartCount + ' منتج في السلة وحاب نكمل الطلب 🛒', '_blank');
         }
 
         function contactUs() { window.open('https://wa.me/21693243981', '_blank'); }
 
-        // ===== START =====
         init();
     </script>
 </body>
