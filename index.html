@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>🍃 Naruto Shop —z كنز الشينوبي</title>
+    <title>🍃 Naruto Shop — كنز الشينوبي</title>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Tajawal:wght@300;400;700;900&display=swap" rel="stylesheet"/>
     <style>
         /* ============================================================
@@ -41,15 +41,45 @@
             color: var(--text);
             min-height: 100vh;
             overflow-x: hidden;
+            /* ===== خلفية ناروتوية ===== */
             background-image: 
                 /* شوريكنز متطايرة */
-                url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 5 L45 30 L70 35 L45 40 L40 65 L35 40 L10 35 L35 30 Z' fill='rgba(230,126,34,0.03)' stroke='rgba(230,126,34,0.06)' stroke-width='1'/%3E%3C/svg%3E"),
-                /* أوراق الشجر */
-                url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 10 C70 30 90 40 90 60 C90 80 70 90 60 110 C50 90 30 80 30 60 C30 40 50 30 60 10Z' fill='rgba(39,174,96,0.03)'/%3E%3C/svg%3E"),
-                radial-gradient(circle at 10% 20%, rgba(230, 126, 34, 0.04) 0%, transparent 50%),
-                radial-gradient(circle at 90% 80%, rgba(211, 84, 0, 0.04) 0%, transparent 50%);
-            background-size: 80px 80px, 120px 120px, 100% 100%, 100% 100%;
+                url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 5 L45 30 L70 35 L45 40 L40 65 L35 40 L10 35 L35 30 Z' fill='rgba(230,126,34,0.04)' stroke='rgba(230,126,34,0.08)' stroke-width='1'/%3E%3C/svg%3E"),
+                /* أوراق الشجر المتساقطة */
+                url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 10 C70 30 90 40 90 60 C90 80 70 90 60 110 C50 90 30 80 30 60 C30 40 50 30 60 10Z' fill='rgba(39,174,96,0.04)'/%3E%3C/svg%3E"),
+                /* رمز ناروتو */
+                url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='100' cy='100' r='80' fill='none' stroke='rgba(230,126,34,0.03)' stroke-width='2'/%3E%3Cpath d='M100 20 L120 80 L180 80 L130 120 L150 180 L100 140 L50 180 L70 120 L20 80 L80 80 Z' fill='rgba(230,126,34,0.02)' stroke='rgba(230,126,34,0.04)' stroke-width='1'/%3E%3C/svg%3E"),
+                /* تأثيرات الناروتو - خلفيات متدرجة */
+                radial-gradient(circle at 10% 20%, rgba(230, 126, 34, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(211, 84, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(39, 174, 96, 0.02) 0%, transparent 70%);
+            background-size: 80px 80px, 120px 120px, 200px 200px, 100% 100%, 100% 100%, 100% 100%;
             background-attachment: fixed;
+            background-blend-mode: overlay, overlay, overlay, normal, normal, normal;
+        }
+
+        /* ===== تأثير أوراق متساقطة متحركة ===== */
+        .leaf {
+            position: fixed;
+            font-size: 2rem;
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 0;
+            animation: leafFloat 20s linear infinite;
+        }
+
+        @keyframes leafFloat {
+            0% {
+                transform: translateY(-10vh) rotate(0deg) scale(1);
+                opacity: 0.08;
+            }
+            50% {
+                opacity: 0.15;
+            }
+            100% {
+                transform: translateY(110vh) rotate(720deg) scale(0.5);
+                opacity: 0.02;
+            }
         }
 
         /* ============================================================
@@ -238,6 +268,7 @@
             right: 10px;
             font-size: 4rem;
             opacity: 0.1;
+            animation: floatIcon 6s ease-in-out infinite;
         }
 
         .hero::after {
@@ -247,6 +278,17 @@
             left: 10px;
             font-size: 4rem;
             opacity: 0.1;
+            animation: floatIcon 6s ease-in-out infinite reverse;
+        }
+
+        @keyframes floatIcon {
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(10deg);
+            }
         }
 
         .hero-badge {
@@ -339,6 +381,8 @@
             justify-content: center;
             gap: 2rem;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
 
         .feature-item {
@@ -362,6 +406,8 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem 1rem;
+            position: relative;
+            z-index: 1;
         }
 
         .section-title {
@@ -614,7 +660,7 @@
             background: radial-gradient(circle at 50% 50%, #2ecc71, transparent);
         }
 
-        /* ---- Character emoji overlay (text-based, works everywhere) ---- */
+        /* ---- Character emoji overlay ---- */
         .character-emoji {
             position: absolute;
             bottom: 5px;
@@ -622,7 +668,7 @@
             font-size: 2.2rem;
             opacity: 0.2;
             z-index: 1;
-            filter: drop-shadow(0 0 10px rgba(0,0,0,0.1));
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.1));
             line-height: 1;
         }
 
@@ -1633,6 +1679,15 @@
     </style>
 </head>
 <body>
+
+    <!-- ===== أوراق متساقطة متحركة (خلفية ناروتوية) ===== -->
+    <div class="leaf" style="left:5%; animation-duration:22s; font-size:2.5rem;">🍃</div>
+    <div class="leaf" style="left:15%; animation-duration:18s; animation-delay:2s; font-size:1.8rem;">🍂</div>
+    <div class="leaf" style="left:30%; animation-duration:25s; animation-delay:4s; font-size:2.2rem;">🍃</div>
+    <div class="leaf" style="left:50%; animation-duration:20s; animation-delay:1s; font-size:3rem;">🍂</div>
+    <div class="leaf" style="left:70%; animation-duration:28s; animation-delay:3s; font-size:1.5rem;">🍃</div>
+    <div class="leaf" style="left:85%; animation-duration:16s; animation-delay:5s; font-size:2.8rem;">🍂</div>
+    <div class="leaf" style="left:92%; animation-duration:24s; animation-delay:7s; font-size:2rem;">🍃</div>
 
     <!-- ============================================================
     NAVBAR
