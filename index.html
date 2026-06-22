@@ -26,12 +26,9 @@
             --green: #2ecc71;
             --shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
             --radius: 16px;
-            --glow: rgba(243, 156, 18, 0.15);
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Tajawal', sans-serif;
@@ -41,28 +38,24 @@
             overflow-x: hidden;
             background-image:
                 url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 5 L70 30 L95 35 L75 55 L80 85 L60 70 L40 85 L45 55 L25 35 L50 30 Z' fill='rgba(243,156,18,0.04)'/%3E%3C/svg%3E"),
-                url("data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='90' cy='90' r='70' fill='none' stroke='rgba(243,156,18,0.03)' stroke-width='2'/%3E%3Cpath d='M90 20 L110 80 L170 80 L125 120 L145 175 L90 135 L35 175 L55 120 L10 80 L70 80 Z' fill='rgba(243,156,18,0.02)'/%3E%3C/svg%3E"),
                 radial-gradient(ellipse at 20% 30%, rgba(243,156,18,0.06) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 70%, rgba(231,76,60,0.05) 0%, transparent 60%),
-                radial-gradient(ellipse at 50% 50%, rgba(46,204,113,0.03) 0%, transparent 70%);
-            background-size: 120px 120px, 180px 180px, 100% 100%, 100% 100%, 100% 100%;
+                radial-gradient(ellipse at 80% 70%, rgba(231,76,60,0.05) 0%, transparent 60%);
+            background-size: 120px 120px, 100% 100%, 100% 100%;
             background-attachment: fixed;
-            background-blend-mode: overlay, overlay, normal, normal, normal;
         }
 
-        /* ===== خلفية متحركة بها أوراق ===== */
+        /* ===== أوراق متحركة ===== */
         .leaf {
             position: fixed;
             font-size: 2.4rem;
-            opacity: 0.07;
+            opacity: 0.06;
             pointer-events: none;
             z-index: 0;
             animation: leafFall 22s linear infinite;
-            filter: drop-shadow(0 0 8px rgba(243,156,18,0.1));
         }
         @keyframes leafFall {
-            0% { transform: translateY(-10vh) rotate(0deg) scale(1); opacity: 0.08; }
-            50% { opacity: 0.15; }
+            0% { transform: translateY(-10vh) rotate(0deg) scale(1); opacity: 0.06; }
+            50% { opacity: 0.12; }
             100% { transform: translateY(110vh) rotate(720deg) scale(0.4); opacity: 0.02; }
         }
 
@@ -95,7 +88,6 @@
             gap: 0.5rem;
             color: var(--text);
             cursor: pointer;
-            letter-spacing: 1px;
         }
         .logo .logo-icon {
             width: 38px; height: 38px;
@@ -107,7 +99,16 @@
             font-size: 1.2rem;
             box-shadow: 0 0 20px rgba(243,156,18,0.2);
         }
-        .logo span { background: linear-gradient(135deg, var(--accent), var(--gold)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo .logo-icon img {
+            width: 28px; height: 28px;
+            border-radius: 6px;
+        }
+        .logo span {
+            background: linear-gradient(135deg, var(--accent), var(--gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
         .nav-links {
             display: flex;
@@ -178,23 +179,10 @@
         /* ===== HERO ===== */
         .hero {
             text-align: center;
-            padding: 4rem 1.5rem 2.5rem;
+            padding: 3rem 1.5rem 2rem;
             max-width: 900px;
             margin: 0 auto;
             position: relative;
-        }
-        .hero::before {
-            content: '🌀'; position: absolute; top: 10px; right: 20px;
-            font-size: 5rem; opacity: 0.06; animation: spinFloat 12s linear infinite;
-        }
-        .hero::after {
-            content: '🍥'; position: absolute; bottom: 10px; left: 20px;
-            font-size: 5rem; opacity: 0.06; animation: spinFloat 12s linear infinite reverse;
-        }
-        @keyframes spinFloat {
-            0% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-12px) rotate(180deg); }
-            100% { transform: translateY(0) rotate(360deg); }
         }
 
         .hero-badge {
@@ -226,11 +214,12 @@
             font-weight: 900;
             line-height: 1.1;
             margin-bottom: 0.8rem;
-            text-shadow: 0 0 40px rgba(243,156,18,0.08);
         }
         .hero h1 span {
             background: linear-gradient(135deg, var(--accent), var(--gold));
-            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         .hero p {
             color: var(--muted);
@@ -239,6 +228,7 @@
             margin: 0 auto 2rem;
             line-height: 1.9;
         }
+
         .hero-stats {
             display: flex;
             justify-content: center;
@@ -252,6 +242,32 @@
             color: var(--accent);
         }
         .stat-label { font-size: 0.75rem; color: var(--muted); }
+
+        /* ===== عداد تنازلي ===== */
+        .countdown-box {
+            display: inline-flex;
+            gap: 1.5rem;
+            background: rgba(243,156,18,0.05);
+            border: 1px solid rgba(243,156,18,0.1);
+            border-radius: 12px;
+            padding: 0.8rem 2rem;
+            margin: 1.5rem auto;
+        }
+        .countdown-item {
+            text-align: center;
+        }
+        .countdown-item .num {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--gold);
+            display: block;
+            line-height: 1;
+        }
+        .countdown-item .lbl {
+            font-size: 0.6rem;
+            color: var(--muted);
+        }
 
         /* ===== FEATURES ===== */
         .features-bar {
@@ -278,6 +294,9 @@
             display: block;
             color: var(--text);
             font-size: 0.8rem;
+        }
+        .feature-item .icon {
+            font-size: 1.4rem;
         }
 
         /* ===== SECTION ===== */
@@ -347,13 +366,11 @@
             outline: none;
             transition: 0.3s;
             margin-bottom: 1.5rem;
-            backdrop-filter: blur(4px);
         }
         .search-input:focus {
             border-color: var(--accent);
             box-shadow: 0 0 0 3px rgba(243,156,18,0.08);
         }
-        .search-input::placeholder { color: var(--muted); }
 
         /* ===== PRODUCTS GRID ===== */
         .products-grid {
@@ -371,7 +388,6 @@
             position: relative;
             animation: fadeUp 0.5s ease both;
             box-shadow: var(--shadow);
-            backdrop-filter: blur(4px);
         }
         .product-card:hover {
             border-color: var(--accent);
@@ -386,46 +402,53 @@
 
         /* ===== CARD BANNER ===== */
         .card-banner {
-            height: 120px;
+            height: 130px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3.2rem;
             position: relative;
             overflow: hidden;
+            background-size: cover;
+            background-position: center;
         }
-        .card-banner::before {
+        .card-banner .product-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 12px;
+            background: rgba(0,0,0,0.3);
+            padding: 4px;
+            z-index: 2;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .card-banner::after {
             content: '';
             position: absolute;
             inset: 0;
-            opacity: 0.15;
-            background: radial-gradient(circle at 50% 50%, rgba(243,156,18,0.2), transparent);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4));
+            z-index: 1;
         }
 
-        /* Naruto Themed Banners */
+        /* ===== خلفيات البانر ===== */
         .banner-akatsuki { background: linear-gradient(135deg, #1a0000, #3d0a0a); }
         .banner-konoha { background: linear-gradient(135deg, #0a2a0a, #1a4a1a); }
         .banner-sand { background: linear-gradient(135deg, #2a1a0a, #4a2a0a); }
         .banner-mist { background: linear-gradient(135deg, #0a1a2a, #0a2a4a); }
-        .banner-cloud { background: linear-gradient(135deg, #1a1a2a, #2a2a4a); }
-        .banner-stone { background: linear-gradient(135deg, #1a1a0a, #3a2a0a); }
         .banner-uzumaki { background: linear-gradient(135deg, #2a0a0a, #4a1a0a); }
         .banner-uchiha { background: linear-gradient(135deg, #0a0a2a, #1a0a4a); }
-        .banner-senju { background: linear-gradient(135deg, #0a2a1a, #0a4a2a); }
+        .banner-sage { background: linear-gradient(135deg, #0a1a0a, #1a3a1a); }
+        .banner-nine-tails { background: linear-gradient(135deg, #1a0000, #4a0a0a); }
+        .banner-stone { background: linear-gradient(135deg, #1a1a0a, #3a2a0a); }
         .banner-hokage { background: linear-gradient(135deg, #1a0a00, #3a1a00); }
-        .banner-rasengan { background: linear-gradient(135deg, #0a1a2a, #1a3a5a); }
         .banner-chidori { background: linear-gradient(135deg, #1a0a2a, #3a0a5a); }
         .banner-susanoo { background: linear-gradient(135deg, #0a0a1a, #1a0a3a); }
-        .banner-nine-tails { background: linear-gradient(135deg, #1a0000, #4a0a0a); }
-        .banner-sage { background: linear-gradient(135deg, #0a1a0a, #1a3a1a); }
 
         .character-emoji {
             position: absolute;
             bottom: 4px; right: 6px;
             font-size: 2.4rem;
-            opacity: 0.2;
-            z-index: 1;
-            filter: drop-shadow(0 0 12px rgba(0,0,0,0.3));
+            opacity: 0.15;
+            z-index: 2;
         }
         .card-badge {
             position: absolute;
@@ -435,20 +458,38 @@
             font-size: 0.6rem;
             font-weight: 700;
             font-family: 'Rajdhani', sans-serif;
-            letter-spacing: 0.5px;
-            z-index: 2;
+            z-index: 3;
         }
         .badge-hot { background: var(--accent3); color: #fff; }
         .badge-new { background: var(--accent); color: #fff; }
         .badge-sale { background: var(--gold); color: #1a1410; }
         .badge-stock { background: var(--green); color: #1a1410; }
         .badge-limited { background: #8e44ad; color: #fff; }
+        .badge-top { background: #f1c40f; color: #1a1410; }
 
         .card-body {
             padding: 0.7rem 1rem 1rem;
         }
         .card-title { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.1rem; }
         .card-type { font-size: 0.7rem; color: var(--muted); margin-bottom: 0.4rem; }
+
+        /* ===== تقييم النجوم ===== */
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-bottom: 0.3rem;
+        }
+        .stars {
+            color: var(--gold);
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+        }
+        .rating-num {
+            font-size: 0.65rem;
+            color: var(--muted);
+        }
+
         .card-prices {
             display: flex;
             align-items: baseline;
@@ -534,9 +575,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 6rem;
             position: relative;
             border: 1px solid var(--border);
+            background: var(--card);
+        }
+        .detail-visual img {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+            border-radius: 16px;
+            z-index: 2;
         }
         .detail-visual::after {
             content: '';
@@ -551,6 +599,7 @@
             opacity: 0.2;
             z-index: 1;
         }
+
         .detail-breadcrumb {
             display: flex;
             align-items: center;
@@ -562,6 +611,7 @@
         }
         .detail-breadcrumb span { cursor: pointer; transition: 0.2s; }
         .detail-breadcrumb span:hover { color: var(--accent); }
+
         .detail-badge {
             display: inline-block;
             padding: 0.15rem 0.7rem;
@@ -583,6 +633,7 @@
             line-height: 1.8;
             margin-bottom: 1.2rem;
         }
+
         .price-box {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -590,7 +641,6 @@
             padding: 1rem;
             margin-bottom: 1.2rem;
             box-shadow: var(--shadow);
-            backdrop-filter: blur(4px);
         }
         .price-box-lbl {
             font-size: 0.7rem;
@@ -673,7 +723,6 @@
             cursor: pointer;
             transition: all 0.3s;
             box-shadow: var(--shadow);
-            backdrop-filter: blur(4px);
         }
         .pkg:hover, .pkg.active {
             border-color: var(--accent);
@@ -707,6 +756,7 @@
             font-size: 0.75rem;
             color: var(--text);
         }
+
         .action-row {
             display: flex;
             gap: 0.6rem;
@@ -766,7 +816,8 @@
             gap: 0.6rem;
         }
         .related-grid .product-card { min-height: auto; }
-        .related-grid .card-banner { height: 80px; font-size: 2.2rem; }
+        .related-grid .card-banner { height: 80px; }
+        .related-grid .card-banner .product-img { width: 50px; height: 50px; }
         .related-grid .card-body { padding: 0.5rem 0.7rem; }
         .related-grid .card-title { font-size: 0.8rem; }
         .related-grid .price-usd { font-size: 0.9rem; }
@@ -817,6 +868,7 @@
         .modal-close:hover { background: rgba(255,255,255,0.08); color: var(--text); }
         .modal h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.2rem; }
         .modal-sub { color: var(--muted); font-size: 0.78rem; margin-bottom: 1rem; }
+
         .modal-price-box {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -842,6 +894,7 @@
             color: var(--gold);
         }
         .mpd-lbl { font-size: 0.65rem; color: var(--muted); }
+
         .pay-methods {
             display: flex;
             gap: 0.4rem;
@@ -931,7 +984,9 @@
             font-size: 1.2rem;
             font-weight: 700;
             background: linear-gradient(135deg, var(--accent), var(--gold));
-            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 0.3rem;
         }
         .footer-links {
@@ -953,12 +1008,11 @@
         /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
             .detail-wrap { grid-template-columns: 1fr; gap: 1.5rem; }
-            .detail-visual { height: 250px; font-size: 5rem; }
+            .detail-visual { height: 250px; }
         }
         @media (max-width: 768px) {
             nav { padding: 0 1rem; height: 60px; flex-wrap: wrap; }
             .logo { font-size: 1.2rem; }
-            .logo .logo-icon { width: 32px; height: 32px; font-size: 1rem; }
             .nav-links { display: none; }
             .btn-cart { padding: 0.3rem 0.7rem; font-size: 0.75rem; }
             .hero { padding: 2rem 1rem 1.5rem; }
@@ -968,17 +1022,12 @@
             .features-bar { gap: 1rem; padding: 0.8rem 1rem; }
             .feature-item { font-size: 0.7rem; }
             .products-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.8rem; }
-            .card-banner { height: 100px; font-size: 2.4rem; }
-            .character-emoji { font-size: 1.8rem; }
-            .card-body { padding: 0.5rem 0.7rem; }
-            .card-title { font-size: 0.8rem; }
-            .price-usd { font-size: 0.95rem; }
-            .price-dt { font-size: 0.85rem; }
-            .btn-detail { font-size: 0.75rem; padding: 0.4rem; }
+            .card-banner { height: 100px; }
+            .card-banner .product-img { width: 60px; height: 60px; }
+            .countdown-box { gap: 1rem; padding: 0.5rem 1rem; }
+            .countdown-item .num { font-size: 1.2rem; }
             .detail-title { font-size: 1.3rem; }
             .big-usd { font-size: 2rem; }
-            .detail-wrap { padding: 1rem 0.8rem; }
-            .related-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
             .action-row { flex-direction: column; }
             .btn-buy-now { min-width: auto; width: 100%; }
             .btn-contact { width: 100%; }
@@ -986,23 +1035,19 @@
         }
         @media (max-width: 480px) {
             .products-grid { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
-            .card-banner { height: 80px; font-size: 2rem; }
-            .character-emoji { font-size: 1.5rem; }
+            .card-banner { height: 80px; }
+            .card-banner .product-img { width: 50px; height: 50px; }
             .card-body { padding: 0.4rem; }
             .card-title { font-size: 0.7rem; }
             .price-usd { font-size: 0.85rem; }
             .price-dt { font-size: 0.75rem; }
             .btn-detail { font-size: 0.65rem; padding: 0.3rem; }
             .cat-btn { font-size: 0.7rem; padding: 0.3rem 0.7rem; }
-            .section-title h2 { font-size: 1rem; }
-            .detail-visual { height: 180px; font-size: 3.5rem; }
-            .detail-visual .char-emoji { font-size: 2.5rem; }
-            .detail-title { font-size: 1.1rem; }
-            .big-usd { font-size: 1.7rem; }
-            .dt-amount { font-size: 1.1rem; }
-            .pkg { padding: 0.4rem 0.6rem; }
-            .pkg-name { font-size: 0.75rem; }
-            .trust-item { font-size: 0.65rem; }
+            .countdown-box { gap: 0.5rem; padding: 0.3rem 0.8rem; }
+            .countdown-item .num { font-size: 1rem; }
+            .countdown-item .lbl { font-size: 0.5rem; }
+            .detail-visual { height: 180px; }
+            .detail-visual img { width: 120px; height: 120px; }
         }
     </style>
 </head>
@@ -1015,12 +1060,13 @@
     <div class="leaf" style="left:55%; animation-duration:18s; animation-delay:1s; font-size:3rem;">🍂</div>
     <div class="leaf" style="left:75%; animation-duration:26s; animation-delay:3s; font-size:1.6rem;">🍃</div>
     <div class="leaf" style="left:88%; animation-duration:22s; animation-delay:5s; font-size:2.6rem;">🍂</div>
-    <div class="leaf" style="left:95%; animation-duration:30s; animation-delay:7s; font-size:2rem;">🍃</div>
 
     <!-- ===== NAVBAR ===== -->
     <nav>
         <div class="logo" onclick="goHome()">
-            <div class="logo-icon">🍥</div>
+            <div class="logo-icon">
+                <img src="https://i.imgur.com/7sE8QnI.png" alt="Naruto" onerror="this.textContent='🍥'">
+            </div>
             <span>Naruto</span> Shop
         </div>
         <div class="nav-right">
@@ -1047,6 +1093,15 @@
             </div>
             <h1>كنز الشينوبي<br><span>مفاتيح وحسابات فورية</span></h1>
             <p>اشترِ مفاتيح الألعاب والاشتراكات بأرخص الأسعار. تسليم فوري وضمان 100% مثل ظل الحكيم 🌀</p>
+
+            <!-- ===== عداد تنازلي للعرض ===== -->
+            <div class="countdown-box" id="countdown">
+                <div class="countdown-item"><span class="num" id="cdDays">00</span><span class="lbl">أيام</span></div>
+                <div class="countdown-item"><span class="num" id="cdHours">00</span><span class="lbl">ساعات</span></div>
+                <div class="countdown-item"><span class="num" id="cdMins">00</span><span class="lbl">دقائق</span></div>
+                <div class="countdown-item"><span class="num" id="cdSecs">00</span><span class="lbl">ثواني</span></div>
+            </div>
+
             <div class="hero-stats">
                 <div><div class="stat-num">+500</div><div class="stat-label">منتج</div></div>
                 <div><div class="stat-num">5K+</div><div class="stat-label">شينوبي</div></div>
@@ -1055,11 +1110,11 @@
         </section>
 
         <div class="features-bar">
-            <div class="feature-item"><span>⚡</span><div><strong>تسليم فوري</strong>بعد الدفع</div></div>
-            <div class="feature-item"><span>🔒</span><div><strong>دفع آمن</strong>SSL كامل</div></div>
-            <div class="feature-item"><span>✅</span><div><strong>ضمان 100%</strong>أو استرداد</div></div>
-            <div class="feature-item"><span>🇹🇳</span><div><strong>بالدينار</strong>1$ = 5 DT</div></div>
-            <div class="feature-item"><span>🍃</span><div><strong>شخصيات ناروتو</strong>أسطورة الشينوبي</div></div>
+            <div class="feature-item"><span class="icon">⚡</span><div><strong>تسليم فوري</strong>بعد الدفع</div></div>
+            <div class="feature-item"><span class="icon">🔒</span><div><strong>دفع آمن</strong>SSL كامل</div></div>
+            <div class="feature-item"><span class="icon">✅</span><div><strong>ضمان 100%</strong>أو استرداد</div></div>
+            <div class="feature-item"><span class="icon">🇹🇳</span><div><strong>بالدينار</strong>1$ = 5 DT</div></div>
+            <div class="feature-item"><span class="icon">🍃</span><div><strong>شخصيات ناروتو</strong>أسطورة الشينوبي</div></div>
         </div>
 
         <section class="section">
@@ -1185,11 +1240,42 @@
         const RATE = 5;
         const toDT = usd => (usd * RATE).toFixed(0);
 
+        // ===== عداد تنازلي =====
+        function startCountdown() {
+            const target = new Date();
+            target.setDate(target.getDate() + 7);
+            target.setHours(0, 0, 0, 0);
+
+            function update() {
+                const now = new Date();
+                const diff = target - now;
+                if (diff <= 0) {
+                    document.getElementById('cdDays').textContent = '00';
+                    document.getElementById('cdHours').textContent = '00';
+                    document.getElementById('cdMins').textContent = '00';
+                    document.getElementById('cdSecs').textContent = '00';
+                    return;
+                }
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+                document.getElementById('cdDays').textContent = String(d).padStart(2, '0');
+                document.getElementById('cdHours').textContent = String(h).padStart(2, '0');
+                document.getElementById('cdMins').textContent = String(m).padStart(2, '0');
+                document.getElementById('cdSecs').textContent = String(s).padStart(2, '0');
+            }
+            update();
+            setInterval(update, 1000);
+        }
+        startCountdown();
+
+        // ===== المنتجات مع صور حقيقية =====
         const PRODUCTS = [{
             id: 'netflix',
             name: 'Netflix Premium',
             cat: 'streaming',
-            icon: '📺',
+            img: 'https://i.imgur.com/7fW4Y9M.png',
             banner: 'banner-akatsuki',
             badge: 'badge-hot',
             badgeText: '🔥 الأكثر مبيعاً',
@@ -1197,13 +1283,15 @@
             type: 'حساب مشترك · شاشة خاصة',
             desc: 'اشتراك نتفليكس بجودة 4K UHD مع شاشة خاصة. تشمل جميع الأفلام والمسلسلات بدون انقطاع.',
             features: ['4K UHD', 'شاشة خاصة', 'كل المسلسلات', 'تحديث تلقائي', 'ضمان كامل', '🧡 مثل ناروتو'],
+            rating: 4.9,
+            reviews: 342,
             packages: [{ name: 'شهر واحد', usd: 4.5, orig: 12 }, { name: '3 أشهر · وفر 20%', usd: 10, orig: 28 }, { name: '6 أشهر · وفر 35%', usd: 17, orig: 50 }],
             stock: 87, stockPct: 85
         }, {
             id: 'spotify',
             name: 'Spotify Premium',
             cat: 'streaming',
-            icon: '🎵',
+            img: 'https://i.imgur.com/3X4Z9Wp.png',
             banner: 'banner-sand',
             badge: 'badge-new',
             badgeText: '✨ جديد',
@@ -1211,13 +1299,15 @@
             type: 'اشتراك شخصي · بدون إعلانات',
             desc: 'استمع لأي موسيقى بدون إعلانات ومن غير اتصال بالإنترنت.',
             features: ['بدون إعلانات', 'Offline', 'جودة عالية', 'تخطي غير محدود', 'كل الأجهزة', '🎵 مثل ساسكي'],
+            rating: 4.8,
+            reviews: 215,
             packages: [{ name: 'شهر واحد', usd: 3.5, orig: 10 }, { name: '3 أشهر', usd: 8, orig: 25 }, { name: '6 أشهر · وفر 25%', usd: 13, orig: 45 }],
             stock: 123, stockPct: 92
         }, {
             id: 'nitro',
             name: 'Discord Nitro',
             cat: 'social',
-            icon: '💎',
+            img: 'https://i.imgur.com/5Q8X6Yz.png',
             banner: 'banner-uchiha',
             badge: 'badge-sale',
             badgeText: '💰 عرض',
@@ -1225,13 +1315,15 @@
             type: 'اشتراك شهري · كامل المميزات',
             desc: 'فعّل Discord Nitro واستمتع بـ emojis مخصصة، رفع ملفات بحجم كبير، وتحسين جودة الفيديو والصوت.',
             features: ['Boost x2', 'Emojis مخصصة', 'ملفات 500MB', 'فيديو HD', 'شارة خاصة', '🟣 مثل إيتاشي'],
+            rating: 4.7,
+            reviews: 189,
             packages: [{ name: 'شهر واحد', usd: 5, orig: 9.99 }, { name: 'سنة كاملة · وفر 16%', usd: 49, orig: 99.99 }],
             stock: 12, stockPct: 18, lowStock: true
         }, {
             id: 'steam',
             name: 'Steam Wallet',
             cat: 'gaming',
-            icon: '🎮',
+            img: 'https://i.imgur.com/2WX8Z9p.png',
             banner: 'banner-stone',
             badge: 'badge-hot',
             badgeText: '🔥 رائج',
@@ -1239,13 +1331,15 @@
             type: 'رصيد Steam · جميع المناطق',
             desc: 'أضف رصيداً لحساب Steam الخاص بك واشتري أي لعبة تريدها.',
             features: ['Global', 'كل الألعاب', 'تسليم فوري', 'لا انتهاء', 'مضمون', '⛰️ مثل أونوكي'],
+            rating: 4.9,
+            reviews: 567,
             packages: [{ name: '5 دولار', usd: 5 }, { name: '10 دولار', usd: 10 }, { name: '20 دولار', usd: 20 }, { name: '50 دولار', usd: 50 }],
             stock: 250, stockPct: 70
         }, {
             id: 'xbox',
-            name: 'Xbox Game Pass Ultimate',
+            name: 'Xbox Game Pass',
             cat: 'microsoft',
-            icon: '🟢',
+            img: 'https://i.imgur.com/4Y7W9Xp.png',
             banner: 'banner-senju',
             badge: 'badge-new',
             badgeText: '✨ جديد',
@@ -1253,13 +1347,15 @@
             type: 'شهر كامل · PC + Console',
             desc: 'أكثر من 100 لعبة للتحميل المجاني على Xbox وPC مع EA Play وCloud Gaming.',
             features: ['100+ لعبة', 'EA Play', 'Cloud Gaming', 'PC+Console', 'Xbox Live Gold', '🌿 مثل هاشيراما'],
+            rating: 4.6,
+            reviews: 143,
             packages: [{ name: 'شهر واحد', usd: 7, orig: 14.99 }, { name: '3 أشهر', usd: 18, orig: 40 }],
             stock: 45, stockPct: 55
         }, {
             id: 'ps',
             name: 'PSN Gift Card',
             cat: 'gaming',
-            icon: '🎯',
+            img: 'https://i.imgur.com/6X8Y9Zp.png',
             banner: 'banner-mist',
             badge: 'badge-sale',
             badgeText: '💰 خصم',
@@ -1267,13 +1363,15 @@
             type: 'بطاقة PlayStation Network',
             desc: 'بطاقة هدية PlayStation لشراء الألعاب والمحتوى الرقمي مباشرة على متجر PS4 وPS5.',
             features: ['PS4/PS5', 'Global', 'فوري', 'كل المتاجر', 'لا انتهاء', '🌫️ مثل زابوزا'],
+            rating: 4.8,
+            reviews: 234,
             packages: [{ name: '10 دولار', usd: 10 }, { name: '20 دولار', usd: 20 }, { name: '50 دولار', usd: 50 }],
             stock: 78, stockPct: 65
         }, {
             id: 'pubg',
             name: 'PUBG Mobile UC',
             cat: 'gaming',
-            icon: '🪖',
+            img: 'https://i.imgur.com/8X7Y9Zp.png',
             banner: 'banner-sand',
             badge: 'badge-hot',
             badgeText: '🔥 طلب عالي',
@@ -1281,13 +1379,15 @@
             type: 'عملة داخل اللعبة',
             desc: 'احصل على UC لشراء الـ Royale Pass والأزياء والأسلحة الحصرية في PUBG Mobile.',
             features: ['Global', 'فوري', 'Royale Pass', 'ملابس حصرية', '100% مضمون', '🏜️ مثل غارا'],
+            rating: 4.7,
+            reviews: 876,
             packages: [{ name: '60 UC', usd: 1, orig: 2 }, { name: '325 UC', usd: 5, orig: 8 }, { name: '660 UC', usd: 6, orig: 10 }, { name: '1800 UC', usd: 15, orig: 22 }],
             stock: 500, stockPct: 95
         }, {
             id: 'valo',
             name: 'Valorant VP',
             cat: 'gaming',
-            icon: '⚡',
+            img: 'https://i.imgur.com/9X8Y7Zp.png',
             banner: 'banner-chidori',
             badge: 'badge-new',
             badgeText: '✨ جديد',
@@ -1295,27 +1395,31 @@
             type: 'نقاط فالورانت',
             desc: 'اشتري VP Points لفالورانت وافتح السكينات والـ Battle Pass والعروض الحصرية.',
             features: ['Global', 'فوري', 'سكينات حصرية', 'Battle Pass', 'Agent Skins', '⚡ مثل تشيدوري'],
+            rating: 4.8,
+            reviews: 432,
             packages: [{ name: '475 VP', usd: 5 }, { name: '1000 VP', usd: 7 }, { name: '2050 VP', usd: 20 }],
             stock: 200, stockPct: 80
         }, {
             id: 'youtube',
             name: 'YouTube Premium',
             cat: 'streaming',
-            icon: '▶️',
+            img: 'https://i.imgur.com/1X8Y7Zp.png',
             banner: 'banner-konoha',
             badge: 'badge-sale',
             badgeText: '💰 عرض',
             charEmoji: '🍃',
             type: 'بدون إعلانات · يوتيوب ميوزيك',
-            desc: 'شاهد يوتيوب بدون أي إعلان مع YouTube Music Premium مجاناً. حمّل الفيديوهات للمشاهدة بدون نت.',
+            desc: 'شاهد يوتيوب بدون أي إعلان مع YouTube Music Premium مجاناً.',
             features: ['بدون إعلانات', 'YT Music', 'Offline', 'Background Play', 'شهر كامل', '🍃 مثل ناروتو'],
+            rating: 4.5,
+            reviews: 198,
             packages: [{ name: 'شهر واحد', usd: 4, orig: 13.99 }, { name: '3 أشهر', usd: 10, orig: 36 }],
             stock: 60, stockPct: 50
         }, {
             id: 'minecraft',
             name: 'Minecraft Java',
             cat: 'gaming',
-            icon: '⛏️',
+            img: 'https://i.imgur.com/2X7Y8Zp.png',
             banner: 'banner-stone',
             badge: 'badge-stock',
             badgeText: '✅ متوفر',
@@ -1323,13 +1427,15 @@
             type: 'حساب كامل · مدى الحياة',
             desc: 'حساب Minecraft Java Edition أصلي مدى الحياة مع كل التحديثات المستقبلية مجاناً.',
             features: ['Java Edition', 'مدى الحياة', 'تحديثات مجانية', 'Multiplayer', 'Mods دعم', '⛰️ مثل كاغوزو'],
+            rating: 4.9,
+            reviews: 654,
             packages: [{ name: 'حساب كامل مدى الحياة', usd: 12, orig: 49.99 }],
             stock: 8, stockPct: 12, lowStock: true
         }, {
             id: 'fifa26',
             name: 'FIFA 26',
             cat: 'gaming',
-            icon: '⚽',
+            img: 'https://i.imgur.com/3X7Y8Zp.png',
             banner: 'banner-hokage',
             badge: 'badge-new',
             badgeText: '✨ جديد',
@@ -1337,13 +1443,15 @@
             type: 'حساب كامل · مدى الحياة',
             desc: 'حساب FIFA 26 أصلي مدى الحياة مع كل التحديثات المستقبلية مجاناً.',
             features: ['مدى الحياة', 'تحديثات مجانية', 'Multiplayer', 'Ultimate Team', 'كل الأوضاع', '🔥 مثل الهوكاغي'],
+            rating: 4.7,
+            reviews: 321,
             packages: [{ name: 'حساب كامل مدى الحياة', usd: 15, orig: 75 }],
             stock: 8, stockPct: 12, lowStock: true
         }, {
             id: 'freefire',
             name: 'Free Fire Diamonds',
             cat: 'gaming',
-            icon: '🔥',
+            img: 'https://i.imgur.com/4X7Y8Zp.png',
             banner: 'banner-nine-tails',
             badge: 'badge-hot',
             badgeText: '🔥 رائج',
@@ -1351,13 +1459,15 @@
             type: 'عملة داخل اللعبة',
             desc: 'احصل على Diamonds لشراء الـ Royale Pass والأزياء والأسلحة الحصرية في Free Fire.',
             features: ['Global', 'فوري', 'Royale Pass', 'ملابس حصرية', '100% مضمون', '🦊 مثل تسعة الذيول'],
+            rating: 4.6,
+            reviews: 543,
             packages: [{ name: '100 Diamonds', usd: 1, orig: 5 }, { name: '210 Diamonds', usd: 5, orig: 8 }, { name: '500 Diamonds', usd: 6, orig: 25 }, { name: '1080 Diamonds', usd: 15, orig: 50 }],
             stock: 500, stockPct: 95
         }, {
             id: 'brawlstars',
             name: 'Brawl Stars Gems',
             cat: 'gaming',
-            icon: '🌟',
+            img: 'https://i.imgur.com/5X7Y8Zp.png',
             banner: 'banner-sage',
             badge: 'badge-sale',
             badgeText: '💰 عرض',
@@ -1365,13 +1475,15 @@
             type: 'عملة داخل اللعبة',
             desc: 'احصل على Gems لشراء الـ Brawl Pass والأزياء الحصرية في Brawl Stars.',
             features: ['Global', 'فوري', 'Brawl Pass', 'ملابس حصرية', '100% مضمون', '🧘 مثل الحكيم'],
+            rating: 4.8,
+            reviews: 789,
             packages: [{ name: '30 Gemmes', usd: 2 }, { name: '80 Gemmes', usd: 3.4 }, { name: '170 Gemmes', usd: 5.6 }, { name: '360 Gemmes', usd: 10 }, { name: '950 Gemmes', usd: 23.6 }, { name: '2000 Gemmes', usd: 46 }, { name: 'Brawl Pass', usd: 7 }, { name: 'Brawl Pass Plus', usd: 9.2 }, { name: 'Brawl Pass Pro', usd: 12.4 }],
             stock: 500, stockPct: 95
         }, {
             id: 'ark',
             name: 'ARK Survival',
             cat: 'gaming',
-            icon: '🦖',
+            img: 'https://i.imgur.com/6X7Y8Zp.png',
             banner: 'banner-susanoo',
             badge: 'badge-hot',
             badgeText: '🔥 رائج',
@@ -1379,13 +1491,15 @@
             type: 'حساب كامل · مدى الحياة',
             desc: 'حساب ARK Survival Evolved أصلي مدى الحياة مع كل التحديثات المستقبلية مجاناً.',
             features: ['مدى الحياة', 'تحديثات مجانية', 'Multiplayer', 'Mods دعم', 'PvP+PvE', '🌀 مثل سوسانو'],
+            rating: 4.5,
+            reviews: 234,
             packages: [{ name: 'حساب كامل مدى الحياة', usd: 12, orig: 29.99 }],
             stock: 8, stockPct: 12, lowStock: true
         }, {
             id: 'adobe',
             name: 'Adobe Creative Cloud',
             cat: 'software',
-            icon: '🎨',
+            img: 'https://i.imgur.com/7X7Y8Zp.png',
             banner: 'banner-akatsuki',
             badge: 'badge-new',
             badgeText: '✨ جديد',
@@ -1393,13 +1507,15 @@
             type: 'اشتراك شهري · كل التطبيقات',
             desc: 'احصل على وصول كامل إلى جميع تطبيقات Adobe مثل Photoshop وIllustrator وPremiere Pro.',
             features: ['كل التطبيقات', 'تحديثات مستمرة', 'تخزين سحابي', 'دعم فني', 'اشتراك شهري', '☁️ مثل الأكاتسكي'],
+            rating: 4.7,
+            reviews: 456,
             packages: [{ name: 'شهر واحد', usd: 20, orig: 52.99 }, { name: 'سنة كاملة · وفر 15%', usd: 200, orig: 599.88 }],
             stock: 30, stockPct: 40
         }, {
             id: 'fortnite',
             name: 'Fortnite V-Bucks',
             cat: 'gaming',
-            icon: '🎯',
+            img: 'https://i.imgur.com/8X7Y8Zp.png',
             banner: 'banner-rasengan',
             badge: 'badge-hot',
             badgeText: '🔥 رائج',
@@ -1407,13 +1523,15 @@
             type: 'عملة داخل اللعبة',
             desc: 'احصل على V-Bucks لشراء الـ Battle Pass والأزياء الحصرية في Fortnite.',
             features: ['Global', 'فوري', 'Battle Pass', 'ملابس حصرية', '100% مضمون', '🌀 مثل الراسينغان'],
+            rating: 4.9,
+            reviews: 1023,
             packages: [{ name: '1000 V-Bucks', usd: 10, orig: 40 }, { name: '2800 V-Bucks', usd: 20, orig: 60 }, { name: '5000 V-Bucks', usd: 35, orig: 70 }],
             stock: 500, stockPct: 95
         }, {
             id: 'naruto1',
             name: 'Naruto Shippuden Box',
             cat: 'naruto',
-            icon: '🍥',
+            img: 'https://i.imgur.com/9X7Y8Zp.png',
             banner: 'banner-uzumaki',
             badge: 'badge-limited',
             badgeText: '🍥 إصدار محدود',
@@ -1421,13 +1539,15 @@
             type: 'مشاهدة كل الحلقات',
             desc: 'احصل على جميع حلقات ناروتو شيبودن بجودة HD مع الترجمة العربية.',
             features: ['HD Quality', 'جميع الحلقات', 'ترجمة عربية', 'مدى الحياة', '🎴 مثل أوروتشيمارو'],
+            rating: 5.0,
+            reviews: 234,
             packages: [{ name: 'مشاهدة مدى الحياة', usd: 3, orig: 15 }],
             stock: 10, stockPct: 15, lowStock: true
         }, {
             id: 'naruto2',
             name: 'Naruto Manga Collection',
             cat: 'naruto',
-            icon: '📚',
+            img: 'https://i.imgur.com/0X7Y8Zp.png',
             banner: 'banner-sage',
             badge: 'badge-new',
             badgeText: '📚 كل المانجا',
@@ -1435,12 +1555,24 @@
             type: 'جميع أجزاء المانجا',
             desc: 'مجموعة كاملة من مانجا ناروتو الأصلية بجودة عالية.',
             features: ['جميع الأجزاء', 'جودة عالية', 'ترجمة عربية', 'مدى الحياة', '🍃 مثل جيرايا'],
+            rating: 4.9,
+            reviews: 567,
             packages: [{ name: 'المجموعة الكاملة', usd: 2, orig: 10 }],
             stock: 15, stockPct: 20, lowStock: true
         }];
 
+        // ===== متغيرات الحالة =====
         let currentCat = 'all', cartCount = 0, selProd = null, selPkg = 0;
 
+        // ===== عرض النجوم =====
+        function renderStars(rating) {
+            const full = Math.floor(rating);
+            const half = rating - full >= 0.5 ? 1 : 0;
+            const empty = 5 - full - half;
+            return '★'.repeat(full) + (half ? '½' : '') + '☆'.repeat(empty);
+        }
+
+        // ===== تهيئة المنتجات =====
         function init() {
             const grid = document.getElementById('productsGrid');
             grid.innerHTML = '';
@@ -1455,13 +1587,17 @@
                 c.onclick = () => openDetail(p.id);
                 c.innerHTML = `
                     <div class="card-banner ${p.banner}">
+                        <img class="product-img" src="${p.img}" alt="${p.name}" onerror="this.style.display='none'">
                         <span class="card-badge ${p.badge}">${p.badgeText}</span>
                         <span class="character-emoji">${p.charEmoji}</span>
-                        ${p.icon}
                     </div>
                     <div class="card-body">
                         <div class="card-title">${p.name}</div>
                         <div class="card-type">${p.type}</div>
+                        <div class="rating">
+                            <span class="stars">${renderStars(p.rating)}</span>
+                            <span class="rating-num">(${p.reviews})</span>
+                        </div>
                         <div class="card-prices">
                             <span class="price-usd">$${pkg0.usd}</span>
                             <span class="price-sep">·</span>
@@ -1478,6 +1614,7 @@
             });
         }
 
+        // ===== الفلترة =====
         function filterCat(cat, btn) {
             currentCat = cat;
             document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
@@ -1495,6 +1632,7 @@
             });
         }
 
+        // ===== التنقل =====
         function goHome() {
             document.getElementById('pageDetail').style.display = 'none';
             document.getElementById('pageHome').style.display = 'block';
@@ -1513,6 +1651,7 @@
             }, 60);
         }
 
+        // ===== صفحة التفاصيل =====
         function openDetail(id) {
             const p = PRODUCTS.find(x => x.id === id);
             if (!p) return;
@@ -1520,7 +1659,10 @@
 
             const vis = document.getElementById('dVisual');
             vis.className = `detail-visual ${p.banner}`;
-            vis.innerHTML = `${p.icon}<span class="char-emoji">${p.charEmoji}</span>`;
+            vis.innerHTML = `
+                <img src="${p.img}" alt="${p.name}" onerror="this.style.display='none'">
+                <span class="char-emoji">${p.charEmoji}</span>
+            `;
 
             const catMap = { streaming: 'الاشتراكات', gaming: 'الألعاب', social: 'سوشيال', microsoft: 'مايكروسوفت', software: 'البرامج', naruto: 'ناروتو' };
             document.getElementById('dCatLbl').textContent = catMap[p.cat] || p.cat;
@@ -1553,9 +1695,9 @@
                 el.className = 'product-card';
                 el.onclick = () => openDetail(r.id);
                 el.innerHTML = `
-                    <div class="card-banner ${r.banner}" style="height:80px;font-size:2.2rem">
+                    <div class="card-banner ${r.banner}" style="height:80px;">
+                        <img class="product-img" src="${r.img}" alt="${r.name}" style="width:50px;height:50px;" onerror="this.style.display='none'">
                         <span class="character-emoji" style="font-size:1.5rem">${r.charEmoji}</span>
-                        ${r.icon}
                     </div>
                     <div class="card-body">
                         <div class="card-title" style="font-size:0.8rem">${r.name}</div>
@@ -1594,10 +1736,11 @@
                 pill.style.display = 'none'; }
         }
 
+        // ===== الطلب =====
         function openOrderModal() {
             if (!selProd) return;
             const pkg = selProd.packages[selPkg];
-            document.getElementById('mIcon').textContent = selProd.icon;
+            document.getElementById('mIcon').textContent = selProd.icon || '📦';
             document.getElementById('mTitle').textContent = selProd.name;
             document.getElementById('mSub').textContent = pkg.name + ' · تسليم فوري';
             document.getElementById('mUSD').textContent = `$${pkg.usd}`;
@@ -1636,6 +1779,7 @@
 
         function contactUs() { window.open('https://wa.me/21693243981', '_blank'); }
 
+        // ===== بدء التشغيل =====
         init();
     </script>
 </body>
