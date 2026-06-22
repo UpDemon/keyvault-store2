@@ -13,19 +13,20 @@
         }
 
         :root {
-            --bg: #0f0c08;
-            --surface: rgba(255, 245, 235, 0.06);
-            --card: rgba(30, 20, 15, 0.85);
-            --border: rgba(200, 160, 120, 0.15);
-            --accent: #f39c12;
-            --accent2: #e67e22;
-            --accent3: #e74c3c;
+            --bg: #0a0806;
+            --surface: rgba(20, 16, 12, 0.85);
+            --card: rgba(15, 12, 10, 0.92);
+            --border: rgba(180, 120, 70, 0.12);
+            --accent: #e67e22;
+            --accent2: #d35400;
+            --accent3: #c0392b;
             --gold: #f1c40f;
-            --text: #f5e6d3;
-            --muted: #b8a9a0;
-            --green: #2ecc71;
-            --shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-            --radius: 16px;
+            --text: #e8ddd0;
+            --muted: #9a8b7a;
+            --green: #27ae60;
+            --shadow: 0 8px 40px rgba(0, 0, 0, 0.7);
+            --radius: 12px;
+            --glow: rgba(230, 126, 34, 0.08);
         }
 
         html { scroll-behavior: smooth; }
@@ -36,72 +37,113 @@
             color: var(--text);
             min-height: 100vh;
             overflow-x: hidden;
-            background-image:
-                url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 5 L70 30 L95 35 L75 55 L80 85 L60 70 L40 85 L45 55 L25 35 L50 30 Z' fill='rgba(243,156,18,0.04)'/%3E%3C/svg%3E"),
-                radial-gradient(ellipse at 20% 30%, rgba(243,156,18,0.06) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 70%, rgba(231,76,60,0.05) 0%, transparent 60%);
-            background-size: 120px 120px, 100% 100%, 100% 100%;
-            background-attachment: fixed;
+            position: relative;
         }
 
-        /* ===== أوراق متحركة ===== */
-        .leaf {
+        /* ============================================================
+           خلفية ناروتو متحركة - رموز الشينوبي
+           ============================================================ */
+        .naruto-bg {
             position: fixed;
-            font-size: 2.4rem;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+            background:
+                /* شوريكنز متطايرة */
+                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 5 L58 35 L88 35 L65 55 L75 85 L50 68 L25 85 L35 55 L12 35 L42 35 Z' fill='rgba(230,126,34,0.04)' stroke='rgba(230,126,34,0.06)' stroke-width='1.5'/%3E%3C/svg%3E"),
+                /* شعار القرية المخفية */
+                url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='100' cy='100' r='75' fill='none' stroke='rgba(230,126,34,0.03)' stroke-width='2'/%3E%3Cpath d='M100 30 L125 85 L180 85 L140 120 L155 175 L100 145 L45 175 L60 120 L20 85 L75 85 Z' fill='rgba(230,126,34,0.02)' stroke='rgba(230,126,34,0.04)' stroke-width='1'/%3E%3C/svg%3E"),
+                /* أوراق ناروتو */
+                url("data:image/svg+xml,%3Csvg width='150' height='150' viewBox='0 0 150 150' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M75 15 C90 45 120 55 120 80 C120 105 90 115 75 140 C60 115 30 105 30 80 C30 55 60 45 75 15Z' fill='rgba(39,174,96,0.025)'/%3E%3C/svg%3E"),
+                /* تأثيرات الضباب */
+                radial-gradient(ellipse at 20% 30%, rgba(230,126,34,0.04) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 70%, rgba(192,57,43,0.03) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 50%, rgba(20,16,12,0.95) 0%, rgba(10,8,6,1) 100%);
+            background-size: 100px 100px, 200px 200px, 150px 150px, 100% 100%, 100% 100%, 100% 100%;
+            background-attachment: fixed;
+            background-blend-mode: overlay, overlay, overlay, normal, normal, normal;
+        }
+
+        /* ===== أوراق متساقطة متحركة ===== */
+        .leaf-naruto {
+            position: fixed;
+            font-size: 2.8rem;
             opacity: 0.06;
             pointer-events: none;
-            z-index: 0;
-            animation: leafFall 22s linear infinite;
+            z-index: 1;
+            animation: leafFall 25s linear infinite;
+            filter: drop-shadow(0 0 15px rgba(230,126,34,0.05));
         }
+
         @keyframes leafFall {
             0% { transform: translateY(-10vh) rotate(0deg) scale(1); opacity: 0.06; }
             50% { opacity: 0.12; }
-            100% { transform: translateY(110vh) rotate(720deg) scale(0.4); opacity: 0.02; }
+            100% { transform: translateY(110vh) rotate(720deg) scale(0.3); opacity: 0.02; }
         }
 
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #1a1410; }
+        /* ===== شوريكن متطاير ===== */
+        .shuriken {
+            position: fixed;
+            font-size: 1.8rem;
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 1;
+            animation: shurikenFly 30s linear infinite;
+        }
+
+        @keyframes shurikenFly {
+            0% { transform: translateX(-10vw) translateY(20vh) rotate(0deg); opacity: 0.04; }
+            50% { opacity: 0.08; }
+            100% { transform: translateX(110vw) translateY(-20vh) rotate(720deg); opacity: 0.02; }
+        }
+
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #0a0806; }
         ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
 
-        /* ===== NAVBAR ===== */
+        /* ============================================================
+           NAVBAR
+           ============================================================ */
         nav {
             position: sticky;
             top: 0;
             z-index: 200;
-            background: rgba(15, 12, 8, 0.92);
-            backdrop-filter: blur(24px);
+            background: rgba(10, 8, 6, 0.92);
+            backdrop-filter: blur(30px);
             border-bottom: 1px solid var(--border);
-            padding: 0 1.8rem;
+            padding: 0 2rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 68px;
-            box-shadow: 0 4px 30px rgba(0,0,0,0.6);
+            height: 64px;
+            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
         }
 
         .logo {
             font-family: 'Rajdhani', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 800;
             display: flex;
             align-items: center;
             gap: 0.5rem;
             color: var(--text);
             cursor: pointer;
+            letter-spacing: 1px;
         }
         .logo .logo-icon {
-            width: 38px; height: 38px;
+            width: 36px; height: 36px;
             background: linear-gradient(135deg, var(--accent), var(--accent2));
-            border-radius: 10px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: 0 0 20px rgba(243,156,18,0.2);
+            font-size: 1.1rem;
+            box-shadow: 0 0 30px rgba(230,126,34,0.15);
         }
         .logo .logo-icon img {
-            width: 28px; height: 28px;
-            border-radius: 6px;
+            width: 24px; height: 24px;
+            border-radius: 4px;
         }
         .logo span {
             background: linear-gradient(135deg, var(--accent), var(--gold));
@@ -118,14 +160,18 @@
         .nav-links a {
             color: var(--muted);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
             transition: 0.3s;
             cursor: pointer;
             padding: 4px 0;
             border-bottom: 2px solid transparent;
+            letter-spacing: 0.5px;
         }
-        .nav-links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+        .nav-links a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
 
         .nav-right {
             display: flex;
@@ -136,24 +182,24 @@
             display: none;
             align-items: center;
             gap: 0.4rem;
-            background: rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.04);
             border: 1px solid var(--border);
             color: var(--muted);
             padding: 0.3rem 0.9rem;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
             font-family: 'Tajawal', sans-serif;
             font-size: 0.8rem;
             transition: all 0.2s;
         }
-        .btn-back:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+        .btn-back:hover { color: var(--text); border-color: rgba(255,255,255,0.1); }
 
         .btn-cart {
-            background: rgba(243,156,18,0.12);
-            border: 1px solid rgba(243,156,18,0.2);
+            background: rgba(230,126,34,0.08);
+            border: 1px solid rgba(230,126,34,0.12);
             color: var(--accent);
             padding: 0.35rem 1rem;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
             font-family: 'Tajawal', sans-serif;
             font-size: 0.8rem;
@@ -163,57 +209,84 @@
             gap: 0.5rem;
             transition: 0.3s;
         }
-        .btn-cart:hover { background: rgba(243,156,18,0.2); }
+        .btn-cart:hover { background: rgba(230,126,34,0.15); }
         .cart-count {
             background: var(--accent3);
             color: #fff;
             border-radius: 50%;
-            width: 20px; height: 20px;
+            width: 18px; height: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.7rem;
+            font-size: 0.6rem;
             font-weight: 700;
         }
 
-        /* ===== HERO ===== */
+        /* ============================================================
+           HERO - أسلوب ناروتو
+           ============================================================ */
         .hero {
             text-align: center;
-            padding: 3rem 1.5rem 2rem;
+            padding: 3.5rem 1.5rem 2.5rem;
             max-width: 900px;
             margin: 0 auto;
             position: relative;
+            z-index: 2;
+        }
+
+        .hero::before {
+            content: '⚔️';
+            position: absolute;
+            top: 5px; right: 20px;
+            font-size: 4rem;
+            opacity: 0.04;
+            animation: floatGlow 8s ease-in-out infinite;
+        }
+        .hero::after {
+            content: '🌀';
+            position: absolute;
+            bottom: 5px; left: 20px;
+            font-size: 4rem;
+            opacity: 0.04;
+            animation: floatGlow 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes floatGlow {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.04; }
+            50% { transform: translateY(-15px) rotate(20deg); opacity: 0.08; }
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.6rem;
-            background: rgba(243,156,18,0.1);
-            border: 1px solid rgba(243,156,18,0.2);
+            background: rgba(230,126,34,0.06);
+            border: 1px solid rgba(230,126,34,0.08);
             border-radius: 100px;
             padding: 0.3rem 1.4rem;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
             color: var(--gold);
             margin-bottom: 1.5rem;
+            letter-spacing: 1px;
         }
         .pulse-dot {
-            width: 8px; height: 8px;
+            width: 6px; height: 6px;
             background: var(--green);
             border-radius: 50%;
-            animation: pulse 1.8s infinite;
+            animation: pulse 2s infinite;
         }
         @keyframes pulse {
             0%,100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(1.6); }
+            50% { opacity: 0.3; transform: scale(1.8); }
         }
 
         .hero h1 {
-            font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+            font-size: clamp(2.2rem, 5vw, 4.2rem);
             font-weight: 900;
             line-height: 1.1;
             margin-bottom: 0.8rem;
+            text-shadow: 0 0 60px rgba(230,126,34,0.04);
         }
         .hero h1 span {
             background: linear-gradient(135deg, var(--accent), var(--gold));
@@ -223,10 +296,11 @@
         }
         .hero p {
             color: var(--muted);
-            font-size: 1rem;
+            font-size: 0.95rem;
             max-width: 480px;
             margin: 0 auto 2rem;
-            line-height: 1.9;
+            line-height: 2;
+            letter-spacing: 0.3px;
         }
 
         .hero-stats {
@@ -241,15 +315,19 @@
             font-weight: 700;
             color: var(--accent);
         }
-        .stat-label { font-size: 0.75rem; color: var(--muted); }
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--muted);
+            letter-spacing: 1px;
+        }
 
         /* ===== عداد تنازلي ===== */
         .countdown-box {
             display: inline-flex;
             gap: 1.5rem;
-            background: rgba(243,156,18,0.05);
-            border: 1px solid rgba(243,156,18,0.1);
-            border-radius: 12px;
+            background: rgba(230,126,34,0.03);
+            border: 1px solid rgba(230,126,34,0.06);
+            border-radius: 10px;
             padding: 0.8rem 2rem;
             margin: 1.5rem auto;
         }
@@ -265,47 +343,52 @@
             line-height: 1;
         }
         .countdown-item .lbl {
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             color: var(--muted);
+            letter-spacing: 1px;
         }
 
-        /* ===== FEATURES ===== */
+        /* ===== FEATURES BAR ===== */
         .features-bar {
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
-            background: rgba(15,12,8,0.6);
-            backdrop-filter: blur(12px);
-            padding: 0.9rem 1.5rem;
+            background: rgba(10,8,6,0.6);
+            backdrop-filter: blur(20px);
+            padding: 0.8rem 1.5rem;
             display: flex;
             justify-content: center;
-            gap: 2.5rem;
+            gap: 2rem;
             flex-wrap: wrap;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
         .feature-item {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--muted);
+        }
+        .feature-item .icon {
+            font-size: 1.2rem;
+            opacity: 0.7;
         }
         .feature-item strong {
             display: block;
             color: var(--text);
-            font-size: 0.8rem;
-        }
-        .feature-item .icon {
-            font-size: 1.4rem;
+            font-size: 0.75rem;
+            font-weight: 600;
         }
 
-        /* ===== SECTION ===== */
+        /* ============================================================
+           PRODUCTS
+           ============================================================ */
         .section {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem 1rem;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
         .section-title {
             display: flex;
@@ -314,65 +397,64 @@
             margin-bottom: 1.5rem;
         }
         .section-title h2 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 800;
             color: var(--text);
+            letter-spacing: 1px;
         }
         .section-title::after {
             content: '';
             flex: 1;
-            height: 2px;
+            height: 1px;
             background: var(--border);
         }
 
-        /* ===== CATEGORIES ===== */
         .categories {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.4rem;
             flex-wrap: wrap;
             margin-bottom: 1.5rem;
         }
         .cat-btn {
-            padding: 0.4rem 1rem;
+            padding: 0.35rem 0.9rem;
             border-radius: 100px;
             border: 1px solid var(--border);
             background: var(--surface);
             color: var(--muted);
             cursor: pointer;
             font-family: 'Tajawal', sans-serif;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
             transition: all 0.3s;
             white-space: nowrap;
+            letter-spacing: 0.5px;
         }
         .cat-btn:hover, .cat-btn.active {
             border-color: var(--accent);
             color: var(--gold);
-            background: rgba(243,156,18,0.08);
-            box-shadow: 0 0 20px rgba(243,156,18,0.05);
+            background: rgba(230,126,34,0.04);
+            box-shadow: 0 0 30px rgba(230,126,34,0.02);
         }
 
-        /* ===== SEARCH ===== */
         .search-input {
             width: 100%;
-            max-width: 420px;
+            max-width: 400px;
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
             color: var(--text);
             font-family: 'Tajawal', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             outline: none;
             transition: 0.3s;
             margin-bottom: 1.5rem;
         }
         .search-input:focus {
             border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(243,156,18,0.08);
+            box-shadow: 0 0 0 3px rgba(230,126,34,0.04);
         }
 
-        /* ===== PRODUCTS GRID ===== */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -383,20 +465,20 @@
             border: 1px solid var(--border);
             border-radius: var(--radius);
             overflow: hidden;
-            transition: all 0.35s cubic-bezier(0.15, 0.85, 0.35, 1);
+            transition: all 0.35s ease;
             cursor: pointer;
             position: relative;
             animation: fadeUp 0.5s ease both;
             box-shadow: var(--shadow);
         }
         .product-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-8px) scale(1.01);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 0 1px rgba(243,156,18,0.15);
+            border-color: rgba(230,126,34,0.15);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
         .product-card.hidden { display: none; }
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(25px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -412,14 +494,14 @@
             background-position: center;
         }
         .card-banner .product-img {
-            width: 80px;
-            height: 80px;
+            width: 72px;
+            height: 72px;
             object-fit: contain;
-            border-radius: 12px;
+            border-radius: 10px;
             background: rgba(0,0,0,0.3);
             padding: 4px;
             z-index: 2;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 25px rgba(0,0,0,0.3);
         }
         .card-banner::after {
             content: '';
@@ -442,51 +524,69 @@
         .banner-hokage { background: linear-gradient(135deg, #1a0a00, #3a1a00); }
         .banner-chidori { background: linear-gradient(135deg, #1a0a2a, #3a0a5a); }
         .banner-susanoo { background: linear-gradient(135deg, #0a0a1a, #1a0a3a); }
+        .banner-senju { background: linear-gradient(135deg, #0a2a1a, #0a4a2a); }
+
+        .card-badge {
+            position: absolute;
+            top: 8px; left: 8px;
+            padding: 0.1rem 0.5rem;
+            border-radius: 100px;
+            font-size: 0.55rem;
+            font-weight: 700;
+            font-family: 'Rajdhani', sans-serif;
+            z-index: 3;
+            letter-spacing: 0.5px;
+        }
+        .badge-hot { background: var(--accent3); color: #fff; }
+        .badge-new { background: var(--accent); color: #fff; }
+        .badge-sale { background: var(--gold); color: #0a0806; }
+        .badge-stock { background: var(--green); color: #0a0806; }
+        .badge-limited { background: #6c3483; color: #fff; }
 
         .character-emoji {
             position: absolute;
             bottom: 4px; right: 6px;
-            font-size: 2.4rem;
-            opacity: 0.15;
+            font-size: 2rem;
+            opacity: 0.12;
             z-index: 2;
         }
-        .card-badge {
-            position: absolute;
-            top: 8px; left: 8px;
-            padding: 0.1rem 0.6rem;
-            border-radius: 100px;
-            font-size: 0.6rem;
-            font-weight: 700;
-            font-family: 'Rajdhani', sans-serif;
-            z-index: 3;
-        }
-        .badge-hot { background: var(--accent3); color: #fff; }
-        .badge-new { background: var(--accent); color: #fff; }
-        .badge-sale { background: var(--gold); color: #1a1410; }
-        .badge-stock { background: var(--green); color: #1a1410; }
-        .badge-limited { background: #8e44ad; color: #fff; }
-        .badge-top { background: #f1c40f; color: #1a1410; }
 
         .card-body {
             padding: 0.7rem 1rem 1rem;
         }
-        .card-title { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.1rem; }
-        .card-type { font-size: 0.7rem; color: var(--muted); margin-bottom: 0.4rem; }
+        .card-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 0.1rem;
+            letter-spacing: 0.5px;
+        }
+        .card-type {
+            font-size: 0.65rem;
+            color: var(--muted);
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.3px;
+        }
 
-        /* ===== تقييم النجوم ===== */
-        .rating {
+        /* ===== تقييم نينجا (بدون نجوم) ===== */
+        .ninja-rating {
             display: flex;
             align-items: center;
-            gap: 0.3rem;
+            gap: 0.4rem;
             margin-bottom: 0.3rem;
         }
-        .stars {
-            color: var(--gold);
+        .ninja-rating .rank {
+            font-family: 'Rajdhani', sans-serif;
             font-size: 0.7rem;
-            letter-spacing: 1px;
+            font-weight: 700;
+            color: var(--gold);
         }
-        .rating-num {
-            font-size: 0.65rem;
+        .ninja-rating .rank-badge {
+            padding: 0.05rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.5rem;
+            font-weight: 700;
+            background: rgba(230,126,34,0.08);
+            border: 1px solid rgba(230,126,34,0.06);
             color: var(--muted);
         }
 
@@ -510,7 +610,7 @@
             color: var(--gold);
         }
         .price-orig {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--muted);
             text-decoration: line-through;
         }
@@ -520,13 +620,14 @@
         .stock-label {
             display: flex;
             justify-content: space-between;
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             color: var(--muted);
             margin-bottom: 2px;
+            letter-spacing: 0.3px;
         }
         .stock-track {
-            height: 4px;
-            background: rgba(255,255,255,0.06);
+            height: 3px;
+            background: rgba(255,255,255,0.04);
             border-radius: 100px;
             overflow: hidden;
         }
@@ -541,23 +642,26 @@
 
         .btn-detail {
             width: 100%;
-            padding: 0.5rem;
-            border-radius: 8px;
+            padding: 0.45rem;
+            border-radius: 6px;
             background: linear-gradient(135deg, var(--accent), var(--accent2));
             border: none;
-            color: #1a1410;
+            color: #0a0806;
             font-family: 'Tajawal', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
+            letter-spacing: 0.5px;
         }
         .btn-detail:hover {
-            box-shadow: 0 4px 24px rgba(243,156,18,0.4);
-            transform: scale(1.03);
+            box-shadow: 0 4px 30px rgba(230,126,34,0.2);
+            transform: scale(1.02);
         }
 
-        /* ===== DETAIL PAGE ===== */
+        /* ============================================================
+           DETAIL PAGE
+           ============================================================ */
         #pageDetail { display: none; }
         .detail-wrap {
             max-width: 1100px;
@@ -569,7 +673,7 @@
             align-items: start;
         }
         .detail-visual {
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
             height: 320px;
             display: flex;
@@ -580,23 +684,24 @@
             background: var(--card);
         }
         .detail-visual img {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             object-fit: contain;
-            border-radius: 16px;
+            border-radius: 12px;
             z-index: 2;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.3);
         }
         .detail-visual::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(15,12,8,0.6) 0%, transparent 60%);
+            background: linear-gradient(to top, rgba(10,8,6,0.5) 0%, transparent 60%);
         }
         .detail-visual .char-emoji {
             position: absolute;
             bottom: 5px; right: 10px;
-            font-size: 3.5rem;
-            opacity: 0.2;
+            font-size: 3rem;
+            opacity: 0.12;
             z-index: 1;
         }
 
@@ -604,7 +709,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--muted);
             margin-bottom: 0.8rem;
             flex-wrap: wrap;
@@ -614,22 +719,23 @@
 
         .detail-badge {
             display: inline-block;
-            padding: 0.15rem 0.7rem;
+            padding: 0.1rem 0.6rem;
             border-radius: 100px;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 700;
             font-family: 'Rajdhani', sans-serif;
             margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
         }
         .detail-title {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 900;
             line-height: 1.2;
             margin-bottom: 0.3rem;
         }
         .detail-desc {
             color: var(--muted);
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             line-height: 1.8;
             margin-bottom: 1.2rem;
         }
@@ -637,28 +743,25 @@
         .price-box {
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 14px;
+            border-radius: 12px;
             padding: 1rem;
             margin-bottom: 1.2rem;
-            box-shadow: var(--shadow);
         }
         .price-box-lbl {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--muted);
             margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
+            letter-spacing: 0.5px;
         }
         .big-usd {
             font-family: 'Rajdhani', sans-serif;
-            font-size: 2.6rem;
+            font-size: 2.4rem;
             font-weight: 700;
             color: var(--accent);
             line-height: 1;
         }
         .big-lbl {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--muted);
             align-self: flex-end;
             margin-bottom: 0.2rem;
@@ -667,22 +770,22 @@
             display: flex;
             align-items: center;
             gap: 0.7rem;
-            background: rgba(241,196,15,0.04);
-            border: 1px solid rgba(241,196,15,0.1);
-            border-radius: 10px;
+            background: rgba(241,196,15,0.02);
+            border: 1px solid rgba(241,196,15,0.04);
+            border-radius: 8px;
             padding: 0.4rem 0.8rem;
             margin-top: 0.6rem;
             flex-wrap: wrap;
         }
         .dt-amount {
             font-family: 'Rajdhani', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--gold);
         }
-        .dt-sub { font-size: 0.7rem; color: var(--muted); }
+        .dt-sub { font-size: 0.65rem; color: var(--muted); }
         .orig-strike {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--muted);
             text-decoration: line-through;
             margin-top: 0.2rem;
@@ -691,20 +794,21 @@
             display: none;
             align-items: center;
             gap: 0.3rem;
-            background: rgba(46,204,113,0.08);
-            border: 1px solid rgba(46,204,113,0.15);
-            border-radius: 6px;
-            padding: 0.15rem 0.5rem;
-            font-size: 0.7rem;
+            background: rgba(39,174,96,0.04);
+            border: 1px solid rgba(39,174,96,0.06);
+            border-radius: 4px;
+            padding: 0.1rem 0.4rem;
+            font-size: 0.65rem;
             color: var(--green);
             margin-top: 0.5rem;
         }
 
         .pkg-lbl {
-            font-size: 0.78rem;
+            font-size: 0.7rem;
             color: var(--muted);
             margin-bottom: 0.5rem;
             font-weight: 600;
+            letter-spacing: 0.5px;
         }
         .packages {
             display: flex;
@@ -719,26 +823,25 @@
             padding: 0.5rem 0.8rem;
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 10px;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: var(--shadow);
         }
         .pkg:hover, .pkg.active {
-            border-color: var(--accent);
-            background: rgba(243,156,18,0.04);
+            border-color: rgba(230,126,34,0.15);
+            background: rgba(230,126,34,0.02);
         }
-        .pkg-name { font-size: 0.85rem; font-weight: 600; }
+        .pkg-name { font-size: 0.8rem; font-weight: 600; }
         .pkg-prices { text-align: left; }
         .pkg-usd {
             font-family: 'Rajdhani', sans-serif;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 700;
             color: var(--accent);
         }
         .pkg-dt {
             font-family: 'Rajdhani', sans-serif;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--gold);
         }
 
@@ -749,11 +852,11 @@
             margin-bottom: 1.2rem;
         }
         .feat-tag {
-            padding: 0.2rem 0.6rem;
-            background: rgba(243,156,18,0.05);
-            border: 1px solid rgba(243,156,18,0.08);
-            border-radius: 6px;
-            font-size: 0.75rem;
+            padding: 0.15rem 0.5rem;
+            background: rgba(230,126,34,0.02);
+            border: 1px solid rgba(230,126,34,0.04);
+            border-radius: 4px;
+            font-size: 0.7rem;
             color: var(--text);
         }
 
@@ -765,35 +868,36 @@
         .btn-buy-now {
             flex: 1;
             min-width: 140px;
-            padding: 0.8rem;
-            border-radius: 10px;
+            padding: 0.7rem;
+            border-radius: 8px;
             background: linear-gradient(135deg, var(--accent), var(--accent2));
             border: none;
-            color: #1a1410;
+            color: #0a0806;
             font-family: 'Tajawal', sans-serif;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
+            letter-spacing: 0.5px;
         }
         .btn-buy-now:hover {
-            box-shadow: 0 6px 30px rgba(243,156,18,0.4);
-            transform: scale(1.03);
+            box-shadow: 0 6px 30px rgba(230,126,34,0.15);
+            transform: scale(1.02);
         }
         .btn-contact {
-            padding: 0.8rem 1rem;
-            border-radius: 10px;
+            padding: 0.7rem 1rem;
+            border-radius: 8px;
             background: var(--surface);
             border: 1px solid var(--border);
             color: var(--text);
             font-family: 'Tajawal', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             cursor: pointer;
             transition: 0.3s;
         }
         .btn-contact:hover {
-            border-color: rgba(255,255,255,0.2);
-            background: rgba(255,255,255,0.04);
+            border-color: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.02);
         }
 
         .trust-row {
@@ -806,8 +910,9 @@
             display: flex;
             align-items: center;
             gap: 0.3rem;
-            font-size: 0.75rem;
+            font-size: 0.65rem;
             color: var(--muted);
+            letter-spacing: 0.3px;
         }
 
         .related-grid {
@@ -819,29 +924,29 @@
         .related-grid .card-banner { height: 80px; }
         .related-grid .card-banner .product-img { width: 50px; height: 50px; }
         .related-grid .card-body { padding: 0.5rem 0.7rem; }
-        .related-grid .card-title { font-size: 0.8rem; }
-        .related-grid .price-usd { font-size: 0.9rem; }
-        .related-grid .price-dt { font-size: 0.8rem; }
-        .related-grid .btn-detail { padding: 0.3rem; font-size: 0.75rem; }
+        .related-grid .card-title { font-size: 0.75rem; }
+        .related-grid .price-usd { font-size: 0.85rem; }
+        .related-grid .price-dt { font-size: 0.75rem; }
+        .related-grid .btn-detail { padding: 0.25rem; font-size: 0.7rem; }
 
         /* ===== MODAL ===== */
         .modal-overlay {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.75);
-            backdrop-filter: blur(12px);
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(20px);
             z-index: 1000;
             align-items: center;
             justify-content: center;
         }
-        .modal-overlay.open { display: flex; animation: fadeIn 0.25s ease; }
+        .modal-overlay.open { display: flex; animation: fadeIn 0.2s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         .modal {
-            background: #1f1814;
+            background: #14100c;
             border: 1px solid var(--border);
-            border-radius: 20px;
+            border-radius: 16px;
             padding: 1.5rem;
             max-width: 400px;
             width: 90%;
@@ -850,29 +955,29 @@
             box-shadow: 0 30px 80px rgba(0,0,0,0.6);
         }
         @keyframes slideUp {
-            from { transform: translateY(40px); opacity: 0; }
+            from { transform: translateY(30px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
         .modal-close {
             position: absolute;
             top: 0.7rem; left: 0.7rem;
-            background: rgba(255,255,255,0.04);
+            background: rgba(255,255,255,0.02);
             border: none;
             color: var(--muted);
-            width: 28px; height: 28px;
+            width: 26px; height: 26px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             transition: 0.3s;
         }
-        .modal-close:hover { background: rgba(255,255,255,0.08); color: var(--text); }
-        .modal h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.2rem; }
-        .modal-sub { color: var(--muted); font-size: 0.78rem; margin-bottom: 1rem; }
+        .modal-close:hover { background: rgba(255,255,255,0.04); color: var(--text); }
+        .modal h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem; }
+        .modal-sub { color: var(--muted); font-size: 0.75rem; margin-bottom: 1rem; }
 
         .modal-price-box {
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 10px;
+            border-radius: 8px;
             padding: 0.8rem;
             margin-bottom: 1rem;
             display: flex;
@@ -883,17 +988,17 @@
         }
         .mpd-usd {
             font-family: 'Rajdhani', sans-serif;
-            font-size: 1.7rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--accent);
         }
         .mpd-dt {
             font-family: 'Rajdhani', sans-serif;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--gold);
         }
-        .mpd-lbl { font-size: 0.65rem; color: var(--muted); }
+        .mpd-lbl { font-size: 0.6rem; color: var(--muted); }
 
         .pay-methods {
             display: flex;
@@ -904,13 +1009,13 @@
         .pay-btn {
             flex: 1;
             min-width: 55px;
-            padding: 0.4rem 0.5rem;
+            padding: 0.35rem 0.5rem;
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 7px;
+            border-radius: 6px;
             color: var(--muted);
             font-family: 'Tajawal', sans-serif;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             cursor: pointer;
             transition: 0.3s;
             text-align: center;
@@ -918,33 +1023,33 @@
         .pay-btn:hover, .pay-btn.active {
             border-color: var(--accent);
             color: var(--gold);
-            background: rgba(243,156,18,0.06);
+            background: rgba(230,126,34,0.02);
         }
         .modal-confirm {
             width: 100%;
-            padding: 0.7rem;
-            border-radius: 10px;
+            padding: 0.6rem;
+            border-radius: 8px;
             background: linear-gradient(135deg, var(--accent), var(--accent2));
             border: none;
-            color: #1a1410;
+            color: #0a0806;
             font-family: 'Tajawal', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 700;
             cursor: pointer;
             transition: 0.3s;
         }
         .modal-confirm:hover {
             transform: scale(1.02);
-            box-shadow: 0 6px 24px rgba(243,156,18,0.3);
+            box-shadow: 0 6px 25px rgba(230,126,34,0.12);
         }
 
         /* ===== TOAST ===== */
         .toast {
             position: fixed;
             bottom: 1.5rem; right: 1.5rem;
-            background: #1f1814;
-            border: 1px solid var(--green);
-            border-radius: 12px;
+            background: #14100c;
+            border: 1px solid rgba(39,174,96,0.15);
+            border-radius: 10px;
             padding: 0.7rem 1rem;
             display: flex;
             align-items: center;
@@ -958,16 +1063,16 @@
         }
         .toast.show { transform: translateY(0); opacity: 1; }
         .toast-icon {
-            width: 28px; height: 28px;
-            background: rgba(46,204,113,0.08);
+            width: 26px; height: 26px;
+            background: rgba(39,174,96,0.04);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
-        .toast-text strong { display: block; font-size: 0.8rem; margin-bottom: 0.05rem; }
-        .toast-text span { font-size: 0.7rem; color: var(--muted); }
+        .toast-text strong { display: block; font-size: 0.75rem; margin-bottom: 0.05rem; }
+        .toast-text span { font-size: 0.65rem; color: var(--muted); }
 
         /* ===== FOOTER ===== */
         footer {
@@ -975,13 +1080,15 @@
             padding: 1.5rem 1rem;
             text-align: center;
             color: var(--muted);
-            font-size: 0.75rem;
-            background: rgba(15,12,8,0.6);
-            backdrop-filter: blur(12px);
+            font-size: 0.7rem;
+            background: rgba(10,8,6,0.6);
+            backdrop-filter: blur(20px);
+            position: relative;
+            z-index: 2;
         }
         .footer-logo {
             font-family: 'Rajdhani', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             background: linear-gradient(135deg, var(--accent), var(--gold));
             -webkit-background-clip: text;
@@ -1001,32 +1108,35 @@
             text-decoration: none;
             transition: 0.2s;
             cursor: pointer;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
         }
         .footer-links a:hover { color: var(--accent); }
 
-        /* ===== RESPONSIVE ===== */
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
         @media (max-width: 992px) {
             .detail-wrap { grid-template-columns: 1fr; gap: 1.5rem; }
             .detail-visual { height: 250px; }
         }
         @media (max-width: 768px) {
-            nav { padding: 0 1rem; height: 60px; flex-wrap: wrap; }
-            .logo { font-size: 1.2rem; }
+            nav { padding: 0 1rem; height: 56px; flex-wrap: wrap; }
+            .logo { font-size: 1.1rem; }
+            .logo .logo-icon { width: 30px; height: 30px; font-size: 0.9rem; }
             .nav-links { display: none; }
-            .btn-cart { padding: 0.3rem 0.7rem; font-size: 0.75rem; }
+            .btn-cart { padding: 0.25rem 0.7rem; font-size: 0.7rem; }
             .hero { padding: 2rem 1rem 1.5rem; }
-            .hero h1 { font-size: 1.8rem; }
+            .hero h1 { font-size: 1.6rem; }
             .hero-stats { gap: 1.5rem; }
-            .stat-num { font-size: 1.5rem; }
-            .features-bar { gap: 1rem; padding: 0.8rem 1rem; }
-            .feature-item { font-size: 0.7rem; }
+            .stat-num { font-size: 1.4rem; }
+            .features-bar { gap: 1rem; padding: 0.7rem 1rem; }
+            .feature-item { font-size: 0.65rem; }
             .products-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.8rem; }
             .card-banner { height: 100px; }
             .card-banner .product-img { width: 60px; height: 60px; }
             .countdown-box { gap: 1rem; padding: 0.5rem 1rem; }
             .countdown-item .num { font-size: 1.2rem; }
-            .detail-title { font-size: 1.3rem; }
+            .detail-title { font-size: 1.2rem; }
             .big-usd { font-size: 2rem; }
             .action-row { flex-direction: column; }
             .btn-buy-now { min-width: auto; width: 100%; }
@@ -1039,34 +1149,40 @@
             .card-banner .product-img { width: 50px; height: 50px; }
             .card-body { padding: 0.4rem; }
             .card-title { font-size: 0.7rem; }
-            .price-usd { font-size: 0.85rem; }
-            .price-dt { font-size: 0.75rem; }
-            .btn-detail { font-size: 0.65rem; padding: 0.3rem; }
-            .cat-btn { font-size: 0.7rem; padding: 0.3rem 0.7rem; }
+            .price-usd { font-size: 0.8rem; }
+            .price-dt { font-size: 0.7rem; }
+            .btn-detail { font-size: 0.6rem; padding: 0.25rem; }
+            .cat-btn { font-size: 0.65rem; padding: 0.25rem 0.6rem; }
             .countdown-box { gap: 0.5rem; padding: 0.3rem 0.8rem; }
             .countdown-item .num { font-size: 1rem; }
-            .countdown-item .lbl { font-size: 0.5rem; }
-            .detail-visual { height: 180px; }
+            .countdown-item .lbl { font-size: 0.45rem; }
+            .detail-visual { height: 160px; }
             .detail-visual img { width: 120px; height: 120px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- ===== خلفية ناروتو ===== -->
+    <div class="naruto-bg"></div>
+
     <!-- ===== أوراق متحركة ===== -->
-    <div class="leaf" style="left:5%; animation-duration:20s;">🍃</div>
-    <div class="leaf" style="left:18%; animation-duration:24s; animation-delay:2s; font-size:1.8rem;">🍂</div>
-    <div class="leaf" style="left:35%; animation-duration:28s; animation-delay:4s; font-size:2.2rem;">🍃</div>
-    <div class="leaf" style="left:55%; animation-duration:18s; animation-delay:1s; font-size:3rem;">🍂</div>
-    <div class="leaf" style="left:75%; animation-duration:26s; animation-delay:3s; font-size:1.6rem;">🍃</div>
-    <div class="leaf" style="left:88%; animation-duration:22s; animation-delay:5s; font-size:2.6rem;">🍂</div>
+    <div class="leaf-naruto" style="left:5%; animation-duration:22s;">🍃</div>
+    <div class="leaf-naruto" style="left:20%; animation-duration:26s; animation-delay:3s; font-size:2rem;">🍂</div>
+    <div class="leaf-naruto" style="left:40%; animation-duration:30s; animation-delay:5s; font-size:2.4rem;">🍃</div>
+    <div class="leaf-naruto" style="left:60%; animation-duration:20s; animation-delay:1s; font-size:3.2rem;">🍂</div>
+    <div class="leaf-naruto" style="left:80%; animation-duration:28s; animation-delay:4s; font-size:1.8rem;">🍃</div>
+    <div class="leaf-naruto" style="left:92%; animation-duration:24s; animation-delay:6s; font-size:2.6rem;">🍂</div>
+
+    <!-- ===== شوريكن ===== -->
+    <div class="shuriken" style="top:20%; animation-duration:35s; animation-delay:2s;">✦</div>
+    <div class="shuriken" style="top:60%; animation-duration:40s; animation-delay:8s;">✦</div>
+    <div class="shuriken" style="top:80%; animation-duration:32s; animation-delay:4s;">✦</div>
 
     <!-- ===== NAVBAR ===== -->
     <nav>
         <div class="logo" onclick="goHome()">
-            <div class="logo-icon">
-                <img src="https://i.imgur.com/7sE8QnI.png" alt="Naruto" onerror="this.textContent='🍥'">
-            </div>
+            <div class="logo-icon">🍥</div>
             <span>Naruto</span> Shop
         </div>
         <div class="nav-right">
@@ -1094,7 +1210,6 @@
             <h1>كنز الشينوبي<br><span>مفاتيح وحسابات فورية</span></h1>
             <p>اشترِ مفاتيح الألعاب والاشتراكات بأرخص الأسعار. تسليم فوري وضمان 100% مثل ظل الحكيم 🌀</p>
 
-            <!-- ===== عداد تنازلي للعرض ===== -->
             <div class="countdown-box" id="countdown">
                 <div class="countdown-item"><span class="num" id="cdDays">00</span><span class="lbl">أيام</span></div>
                 <div class="countdown-item"><span class="num" id="cdHours">00</span><span class="lbl">ساعات</span></div>
@@ -1141,7 +1256,7 @@
                 <a href="https://instagram.com/1_22na" target="_blank">📸 1_22na</a>
                 <a>💬 1_22na</a>
             </div>
-            <div style="margin-top:.5rem;color:rgba(180,160,140,0.3);font-size:.6rem">© 2025 Naruto Shop · 🌀 كنز الشينوبي</div>
+            <div style="margin-top:.5rem;color:rgba(180,160,140,0.15);font-size:.55rem">© 2025 Naruto Shop · 🌀 كنز الشينوبي</div>
         </footer>
     </div>
 
@@ -1152,7 +1267,7 @@
                 <div>
                     <div class="detail-visual" id="dVisual"></div>
                     <div style="margin-top:1.5rem">
-                        <div class="section-title"><h2 style="font-size:0.95rem">🌀 منتجات مشابهة</h2></div>
+                        <div class="section-title"><h2 style="font-size:0.9rem">🌀 منتجات مشابهة</h2></div>
                         <div class="related-grid" id="relatedGrid"></div>
                     </div>
                 </div>
@@ -1176,7 +1291,7 @@
                         </div>
                         <div class="orig-strike" id="dOrig"></div>
                         <div class="dt-convert">
-                            <span style="font-size:1.2rem">🇹🇳</span>
+                            <span style="font-size:1.1rem">🇹🇳</span>
                             <div>
                                 <div class="dt-amount" id="dDT">0 DT</div>
                                 <div class="dt-sub">دينار تونسي · 1$ = 5 DT</div>
@@ -1211,15 +1326,15 @@
     <div class="modal-overlay" id="orderModal" onclick="if(event.target===this)closeModal()">
         <div class="modal">
             <button class="modal-close" onclick="closeModal()">✕</button>
-            <div style="font-size:1.8rem;margin-bottom:.4rem" id="mIcon">📺</div>
+            <div style="font-size:1.6rem;margin-bottom:.4rem" id="mIcon">📺</div>
             <h3 id="mTitle">-</h3>
             <p class="modal-sub" id="mSub">-</p>
             <div class="modal-price-box">
                 <div><div class="mpd-lbl">بالدولار</div><div class="mpd-usd" id="mUSD">$0</div></div>
-                <div style="color:var(--border);font-size:1.2rem">⇔</div>
+                <div style="color:var(--border);font-size:1.1rem">⇔</div>
                 <div style="text-align:left"><div class="mpd-lbl">بالدينار</div><div class="mpd-dt" id="mDT">0 DT</div></div>
             </div>
-            <div style="font-size:.75rem;color:var(--muted);margin-bottom:.5rem">طريقة الدفع</div>
+            <div style="font-size:.7rem;color:var(--muted);margin-bottom:.5rem">طريقة الدفع</div>
             <div class="pay-methods">
                 <button class="pay-btn active">💳 بطاقة</button>
                 <button class="pay-btn" onclick="togglePay(this)">📱 cwarit</button>
@@ -1270,7 +1385,7 @@
         }
         startCountdown();
 
-        // ===== المنتجات مع صور حقيقية =====
+        // ===== المنتجات =====
         const PRODUCTS = [{
             id: 'netflix',
             name: 'Netflix Premium',
@@ -1283,7 +1398,7 @@
             type: 'حساب مشترك · شاشة خاصة',
             desc: 'اشتراك نتفليكس بجودة 4K UHD مع شاشة خاصة. تشمل جميع الأفلام والمسلسلات بدون انقطاع.',
             features: ['4K UHD', 'شاشة خاصة', 'كل المسلسلات', 'تحديث تلقائي', 'ضمان كامل', '🧡 مثل ناروتو'],
-            rating: 4.9,
+            rank: 'S級',
             reviews: 342,
             packages: [{ name: 'شهر واحد', usd: 4.5, orig: 12 }, { name: '3 أشهر · وفر 20%', usd: 10, orig: 28 }, { name: '6 أشهر · وفر 35%', usd: 17, orig: 50 }],
             stock: 87, stockPct: 85
@@ -1299,7 +1414,7 @@
             type: 'اشتراك شخصي · بدون إعلانات',
             desc: 'استمع لأي موسيقى بدون إعلانات ومن غير اتصال بالإنترنت.',
             features: ['بدون إعلانات', 'Offline', 'جودة عالية', 'تخطي غير محدود', 'كل الأجهزة', '🎵 مثل ساسكي'],
-            rating: 4.8,
+            rank: 'A級',
             reviews: 215,
             packages: [{ name: 'شهر واحد', usd: 3.5, orig: 10 }, { name: '3 أشهر', usd: 8, orig: 25 }, { name: '6 أشهر · وفر 25%', usd: 13, orig: 45 }],
             stock: 123, stockPct: 92
@@ -1315,7 +1430,7 @@
             type: 'اشتراك شهري · كامل المميزات',
             desc: 'فعّل Discord Nitro واستمتع بـ emojis مخصصة، رفع ملفات بحجم كبير، وتحسين جودة الفيديو والصوت.',
             features: ['Boost x2', 'Emojis مخصصة', 'ملفات 500MB', 'فيديو HD', 'شارة خاصة', '🟣 مثل إيتاشي'],
-            rating: 4.7,
+            rank: 'A級',
             reviews: 189,
             packages: [{ name: 'شهر واحد', usd: 5, orig: 9.99 }, { name: 'سنة كاملة · وفر 16%', usd: 49, orig: 99.99 }],
             stock: 12, stockPct: 18, lowStock: true
@@ -1331,7 +1446,7 @@
             type: 'رصيد Steam · جميع المناطق',
             desc: 'أضف رصيداً لحساب Steam الخاص بك واشتري أي لعبة تريدها.',
             features: ['Global', 'كل الألعاب', 'تسليم فوري', 'لا انتهاء', 'مضمون', '⛰️ مثل أونوكي'],
-            rating: 4.9,
+            rank: 'S級',
             reviews: 567,
             packages: [{ name: '5 دولار', usd: 5 }, { name: '10 دولار', usd: 10 }, { name: '20 دولار', usd: 20 }, { name: '50 دولار', usd: 50 }],
             stock: 250, stockPct: 70
@@ -1347,7 +1462,7 @@
             type: 'شهر كامل · PC + Console',
             desc: 'أكثر من 100 لعبة للتحميل المجاني على Xbox وPC مع EA Play وCloud Gaming.',
             features: ['100+ لعبة', 'EA Play', 'Cloud Gaming', 'PC+Console', 'Xbox Live Gold', '🌿 مثل هاشيراما'],
-            rating: 4.6,
+            rank: 'A級',
             reviews: 143,
             packages: [{ name: 'شهر واحد', usd: 7, orig: 14.99 }, { name: '3 أشهر', usd: 18, orig: 40 }],
             stock: 45, stockPct: 55
@@ -1363,7 +1478,7 @@
             type: 'بطاقة PlayStation Network',
             desc: 'بطاقة هدية PlayStation لشراء الألعاب والمحتوى الرقمي مباشرة على متجر PS4 وPS5.',
             features: ['PS4/PS5', 'Global', 'فوري', 'كل المتاجر', 'لا انتهاء', '🌫️ مثل زابوزا'],
-            rating: 4.8,
+            rank: 'A級',
             reviews: 234,
             packages: [{ name: '10 دولار', usd: 10 }, { name: '20 دولار', usd: 20 }, { name: '50 دولار', usd: 50 }],
             stock: 78, stockPct: 65
@@ -1379,7 +1494,7 @@
             type: 'عملة داخل اللعبة',
             desc: 'احصل على UC لشراء الـ Royale Pass والأزياء والأسلحة الحصرية في PUBG Mobile.',
             features: ['Global', 'فوري', 'Royale Pass', 'ملابس حصرية', '100% مضمون', '🏜️ مثل غارا'],
-            rating: 4.7,
+            rank: 'B級',
             reviews: 876,
             packages: [{ name: '60 UC', usd: 1, orig: 2 }, { name: '325 UC', usd: 5, orig: 8 }, { name: '660 UC', usd: 6, orig: 10 }, { name: '1800 UC', usd: 15, orig: 22 }],
             stock: 500, stockPct: 95
@@ -1395,7 +1510,7 @@
             type: 'نقاط فالورانت',
             desc: 'اشتري VP Points لفالورانت وافتح السكينات والـ Battle Pass والعروض الحصرية.',
             features: ['Global', 'فوري', 'سكينات حصرية', 'Battle Pass', 'Agent Skins', '⚡ مثل تشيدوري'],
-            rating: 4.8,
+            rank: 'A級',
             reviews: 432,
             packages: [{ name: '475 VP', usd: 5 }, { name: '1000 VP', usd: 7 }, { name: '2050 VP', usd: 20 }],
             stock: 200, stockPct: 80
@@ -1411,7 +1526,7 @@
             type: 'بدون إعلانات · يوتيوب ميوزيك',
             desc: 'شاهد يوتيوب بدون أي إعلان مع YouTube Music Premium مجاناً.',
             features: ['بدون إعلانات', 'YT Music', 'Offline', 'Background Play', 'شهر كامل', '🍃 مثل ناروتو'],
-            rating: 4.5,
+            rank: 'A級',
             reviews: 198,
             packages: [{ name: 'شهر واحد', usd: 4, orig: 13.99 }, { name: '3 أشهر', usd: 10, orig: 36 }],
             stock: 60, stockPct: 50
@@ -1427,7 +1542,7 @@
             type: 'حساب كامل · مدى الحياة',
             desc: 'حساب Minecraft Java Edition أصلي مدى الحياة مع كل التحديثات المستقبلية مجاناً.',
             features: ['Java Edition', 'مدى الحياة', 'تحديثات مجانية', 'Multiplayer', 'Mods دعم', '⛰️ مثل كاغوزو'],
-            rating: 4.9,
+            rank: 'S級',
             reviews: 654,
             packages: [{ name: 'حساب كامل مدى الحياة', usd: 12, orig: 49.99 }],
             stock: 8, stockPct: 12, lowStock: true
@@ -1443,7 +1558,7 @@
             type: 'حساب كامل · مدى الحياة',
             desc: 'حساب FIFA 26 أصلي مدى الحياة مع كل التحديثات المستقبلية مجاناً.',
             features: ['مدى الحياة', 'تحديثات مجانية', 'Multiplayer', 'Ultimate Team', 'كل الأوضاع', '🔥 مثل الهوكاغي'],
-            rating: 4.7,
+            rank: 'A級',
             reviews: 321,
             packages: [{ name: 'حساب كامل مدى الحياة', usd: 15, orig: 75 }],
             stock: 8, stockPct: 12, lowStock: true
@@ -1459,7 +1574,7 @@
             type: 'عملة داخل اللعبة',
             desc: 'احصل على Diamonds لشراء الـ Royale Pass والأزياء والأسلحة الحصرية في Free Fire.',
             features: ['Global', 'فوري', 'Royale Pass', 'ملابس حصرية', '100% مضمون', '🦊 مثل تسعة الذيول'],
-            rating: 4.6,
+            rank: 'B級',
             reviews: 543,
             packages: [{ name: '100 Diamonds', usd: 1, orig: 5 }, { name: '210 Diamonds', usd: 5, orig: 8 }, { name: '500 Diamonds', usd: 6, orig: 25 }, { name: '1080 Diamonds', usd: 15, orig: 50 }],
             stock: 500, stockPct: 95
@@ -1475,7 +1590,7 @@
             type: 'عملة داخل اللعبة',
             desc: 'احصل على Gems لشراء الـ Brawl Pass والأزياء الحصرية في Brawl Stars.',
             features: ['Global', 'فوري', 'Brawl Pass', 'ملابس حصرية', '100% مضمون', '🧘 مثل الحكيم'],
-            rating: 4.8,
+            rank: 'B級',
             reviews: 789,
             packages: [{ name: '30 Gemmes', usd: 2 }, { name: '80 Gemmes', usd: 3.4 }, { name: '170 Gemmes', usd: 5.6 }, { name: '360 Gemmes', usd: 10 }, { name: '950 Gemmes', usd: 23.6 }, { name: '2000 Gemmes', usd: 46 }, { name: 'Brawl Pass', usd: 7 }, { name: 'Brawl Pass Plus', usd: 9.2 }, { name: 'Brawl Pass Pro', usd: 12.4 }],
             stock: 500, stockPct: 95
@@ -1491,7 +1606,7 @@
             type: 'حساب كامل · مدى الحياة',
             desc: 'حساب ARK Survival Evolved أصلي مدى الحياة مع كل التحديثات المستقبلية مجاناً.',
             features: ['مدى الحياة', 'تحديثات مجانية', 'Multiplayer', 'Mods دعم', 'PvP+PvE', '🌀 مثل سوسانو'],
-            rating: 4.5,
+            rank: 'A級',
             reviews: 234,
             packages: [{ name: 'حساب كامل مدى الحياة', usd: 12, orig: 29.99 }],
             stock: 8, stockPct: 12, lowStock: true
@@ -1507,7 +1622,7 @@
             type: 'اشتراك شهري · كل التطبيقات',
             desc: 'احصل على وصول كامل إلى جميع تطبيقات Adobe مثل Photoshop وIllustrator وPremiere Pro.',
             features: ['كل التطبيقات', 'تحديثات مستمرة', 'تخزين سحابي', 'دعم فني', 'اشتراك شهري', '☁️ مثل الأكاتسكي'],
-            rating: 4.7,
+            rank: 'S級',
             reviews: 456,
             packages: [{ name: 'شهر واحد', usd: 20, orig: 52.99 }, { name: 'سنة كاملة · وفر 15%', usd: 200, orig: 599.88 }],
             stock: 30, stockPct: 40
@@ -1523,7 +1638,7 @@
             type: 'عملة داخل اللعبة',
             desc: 'احصل على V-Bucks لشراء الـ Battle Pass والأزياء الحصرية في Fortnite.',
             features: ['Global', 'فوري', 'Battle Pass', 'ملابس حصرية', '100% مضمون', '🌀 مثل الراسينغان'],
-            rating: 4.9,
+            rank: 'S級',
             reviews: 1023,
             packages: [{ name: '1000 V-Bucks', usd: 10, orig: 40 }, { name: '2800 V-Bucks', usd: 20, orig: 60 }, { name: '5000 V-Bucks', usd: 35, orig: 70 }],
             stock: 500, stockPct: 95
@@ -1539,7 +1654,7 @@
             type: 'مشاهدة كل الحلقات',
             desc: 'احصل على جميع حلقات ناروتو شيبودن بجودة HD مع الترجمة العربية.',
             features: ['HD Quality', 'جميع الحلقات', 'ترجمة عربية', 'مدى الحياة', '🎴 مثل أوروتشيمارو'],
-            rating: 5.0,
+            rank: 'S級',
             reviews: 234,
             packages: [{ name: 'مشاهدة مدى الحياة', usd: 3, orig: 15 }],
             stock: 10, stockPct: 15, lowStock: true
@@ -1555,7 +1670,7 @@
             type: 'جميع أجزاء المانجا',
             desc: 'مجموعة كاملة من مانجا ناروتو الأصلية بجودة عالية.',
             features: ['جميع الأجزاء', 'جودة عالية', 'ترجمة عربية', 'مدى الحياة', '🍃 مثل جيرايا'],
-            rating: 4.9,
+            rank: 'S級',
             reviews: 567,
             packages: [{ name: 'المجموعة الكاملة', usd: 2, orig: 10 }],
             stock: 15, stockPct: 20, lowStock: true
@@ -1563,14 +1678,6 @@
 
         // ===== متغيرات الحالة =====
         let currentCat = 'all', cartCount = 0, selProd = null, selPkg = 0;
-
-        // ===== عرض النجوم =====
-        function renderStars(rating) {
-            const full = Math.floor(rating);
-            const half = rating - full >= 0.5 ? 1 : 0;
-            const empty = 5 - full - half;
-            return '★'.repeat(full) + (half ? '½' : '') + '☆'.repeat(empty);
-        }
 
         // ===== تهيئة المنتجات =====
         function init() {
@@ -1594,9 +1701,9 @@
                     <div class="card-body">
                         <div class="card-title">${p.name}</div>
                         <div class="card-type">${p.type}</div>
-                        <div class="rating">
-                            <span class="stars">${renderStars(p.rating)}</span>
-                            <span class="rating-num">(${p.reviews})</span>
+                        <div class="ninja-rating">
+                            <span class="rank">🏆 ${p.rank}</span>
+                            <span class="rank-badge">${p.reviews} مراجعة</span>
                         </div>
                         <div class="card-prices">
                             <span class="price-usd">$${pkg0.usd}</span>
@@ -1614,7 +1721,7 @@
             });
         }
 
-        // ===== الفلترة =====
+        // ===== فلترة =====
         function filterCat(cat, btn) {
             currentCat = cat;
             document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
@@ -1632,7 +1739,7 @@
             });
         }
 
-        // ===== التنقل =====
+        // ===== تنقل =====
         function goHome() {
             document.getElementById('pageDetail').style.display = 'none';
             document.getElementById('pageHome').style.display = 'block';
@@ -1700,13 +1807,13 @@
                         <span class="character-emoji" style="font-size:1.5rem">${r.charEmoji}</span>
                     </div>
                     <div class="card-body">
-                        <div class="card-title" style="font-size:0.8rem">${r.name}</div>
+                        <div class="card-title" style="font-size:0.75rem">${r.name}</div>
                         <div class="card-prices" style="margin-bottom:0.3rem">
-                            <span class="price-usd" style="font-size:0.9rem">$${pkg0.usd}</span>
+                            <span class="price-usd" style="font-size:0.85rem">$${pkg0.usd}</span>
                             <span class="price-sep">·</span>
-                            <span class="price-dt" style="font-size:0.8rem">${toDT(pkg0.usd)} DT</span>
+                            <span class="price-dt" style="font-size:0.75rem">${toDT(pkg0.usd)} DT</span>
                         </div>
-                        <button class="btn-detail" style="padding:0.3rem;font-size:0.7rem">عرض ←</button>
+                        <button class="btn-detail" style="padding:0.25rem;font-size:0.7rem">عرض ←</button>
                     </div>`;
                 rg.appendChild(el);
             });
@@ -1779,7 +1886,7 @@
 
         function contactUs() { window.open('https://wa.me/21693243981', '_blank'); }
 
-        // ===== بدء التشغيل =====
+        // ===== بدء =====
         init();
     </script>
 </body>
